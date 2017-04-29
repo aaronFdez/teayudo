@@ -2,12 +2,14 @@
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+
+$url= "images/logo.png";
 
 AppAsset::register($this);
 ?>
@@ -18,7 +20,8 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <?= Html::img('images/logo.png');?>
+    <title>Te Ayudo</title>
     <?php $this->head() ?>
 </head>
 <body>
@@ -27,7 +30,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Principal',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -66,9 +69,9 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left"><?= Html::img(Url::to($url)) ?> Te Ayudo &copy;  </p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right"><?= date('d M Y') ?> <?= Yii::powered() ?></p>
     </div>
 </footer>
 
