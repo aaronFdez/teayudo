@@ -21,8 +21,8 @@ if ($url !== false) {
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;dbname=videoyii',
-    'username' => 'videoyii',
-    'password' => 'videoyii',
+    'dsn' => 'pgsql:host=localhost;dbname=teayudo',
+    'username' => 'teayudo',
+    'password' => 'teayudo',
     'charset' => 'utf8',
 ];
