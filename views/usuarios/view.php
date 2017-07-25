@@ -1,11 +1,10 @@
 <?php
-
+use app\components\UsuariosHelper;
+use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
 /* @var $this yii\web\View */
 /* @var $model app\models\Usuario */
-
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
@@ -31,6 +30,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'nombre',
             'password',
+            [
+                'attribute' => 'tipo',
+                'value' => $model->tipoUsuario,
+            ],
+            [
+                'attribute' => 'foto',
+                'value' => $model->rutaImagen,
+                'format' => 'image',
+            ],
         ],
     ]) ?>
 
