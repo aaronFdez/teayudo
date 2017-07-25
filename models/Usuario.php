@@ -18,6 +18,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     const SCENARIO_DEFAULT = 'default';
     const SCENARIO_FORM_CREATE = 'form-create';
     const SCENARIO_FORM_UPDATE = 'form-update';
+
     public $passwordForm;
     public $passwordConfirmForm;
     public $foto;
@@ -135,6 +136,8 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return Yii::$app->security->validatePassword($password, $this->password);
     }
+
+    
     public function beforeSave($insert)
     {
         if (!parent::beforeSave($insert)) {
@@ -152,6 +155,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         }
         return true;
     }
+
     public function uploadFile()
     {
         $this->foto = UploadedFile::getInstance($this, 'foto');

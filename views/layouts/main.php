@@ -3,7 +3,10 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 use yii\helpers\Url;
+use app\components\UsuariosHelper;
+use app\widgets\Notificacion;
 use yii\helpers\Html;
+use app\helpers\Mensaje;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
@@ -41,19 +44,15 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Usuarios', 'url' => ['/usuarios/index']],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Salir (' . Yii::$app->user->identity->nombre . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+                ['label' => 'Mi perfil', 'url' => ['/site/login']]
+                ) : (
+                    ['label' => 'Mi perfil', 'url' => ['/usuarios/view', 'id' => Yii::$app->user->identity->id],]
+            ),
+            UsuariosHelper::isAdmin() ? (
+                ['label' => 'Usuarios', 'url' => ['usuarios/index']]
+            ) : '',
+            UsuariosHelper::menu(),
         ],
     ]);
     NavBar::end();
@@ -63,6 +62,7 @@ AppAsset::register($this);
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
+        <?= Notificacion::widget() ?>
         <?= $content ?>
     </div>
 </div>

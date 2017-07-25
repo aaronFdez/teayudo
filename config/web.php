@@ -7,6 +7,9 @@ $config = [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'components' => [
+        'formatter' => [
+            'defaultTimeZone' => 'Europe/Madrid',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'B7Ar0-CJUjiA_zL_9JazZQKDzHy0EDDU',
@@ -16,7 +19,7 @@ $config = [
         ],
         'user' => [
             'identityClass' => 'app\models\Usuario',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' =>false,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -46,14 +49,17 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'usuarios/view/<id:\d+>' => 'usuarios/view',
+                'usuarios/<id:\d+>' => 'usuarios/view',
+                'usuarios/update/<id:\d+>' => 'usuarios/update',
+                'usuarios/delete/<id:\d+>' => 'usuarios/delete',
+                'usuarios/activar/<token>' => 'usuarios/activar',
             ],
         ],
-        */
     ],
     'language' => 'es-ES',
     'params' => $params,

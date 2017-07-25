@@ -99,6 +99,7 @@ class UsuariosController extends Controller
     {
         $model = new Usuario();
         $model->scenario = Usuario::SCENARIO_FORM_CREATE;
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $url = Url::to(['usuarios/activar', 'token' => $model->token_val], true);
             Yii::$app->mailer->compose()

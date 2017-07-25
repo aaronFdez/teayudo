@@ -7,7 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Login';
+$this->title = 'Registro';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-login">
@@ -29,10 +29,10 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= $form->field($model, 'password')->passwordInput() ?>
 
         <div class="form-group">
-            <div class="col-lg-offset-1 col-lg-1">
+            <div class="col-lg-offset-1 col-lg-2">
                 <?= Html::submitButton('Registrarse', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
             </div>
-            <div class="col-lg-10">
+            <div class="col-lg-9">
                 <?= Html::a('Crear', ['usuarios/create'], ['class' => 'btn btn-success']) ?>
             </div>
         </div>
