@@ -1,17 +1,16 @@
 <?php
-
+use yii\helpers\Html;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index">
+    <?= Html::img(Yii::$app->user->identity->rutaImagen, ['width'=>'80px']);?>
 
     <div class="jumbotron">
         <h1>Bienvenido </h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <?= Html::img('@web/fotos/logotipo.png', ['alt'=>'Logo']);?>
+        
     </div>
 
     <div class="body-content">
