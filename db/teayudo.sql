@@ -19,11 +19,8 @@ insert into usuarios (nombre, password, tipo)
 
     create table categorias (
         id_categoria  bigserial     constraint pk_categorias primary key,
-        nombre        varchar(20)   not null
+        tipo        varchar(200)   not null
     );
-
-
-    create index idx_categorias_nombre on categorias (nombre);
 
     create table consultas (
         id_consulta     bigserial       constraint pk_consultas primary key,
@@ -32,41 +29,32 @@ insert into usuarios (nombre, password, tipo)
                                                   on delete no action on update cascade,
         titulo           varchar(55)    not null,
         cuerpo         varchar(500)  not null,
-        meneos        numeric(6)     default 0,
-        url                varchar(200)  not null,
+        gusta           numeric(6)     default 0,
+        enlace          varchar(200)  not null,
         id_categoria  bigint             constraint fk_noticias_categorias_categoria
                                                     references categorias (id_categoria)
                                                     on delete no action on update cascade,
-        created_at    timestamptz   default current_timestamp
+        publicado   timestamptz   default current_timestamp
     );
 
     create index idx_consultas_titulo on consultas (titulo);
     create index idx_consultas_create_at on consultas (created_at);
 
 
-        drop table if exists comentarios cascade;
+    drop table if exists comentarios cascade;
 
-        create table comentarios (
-            id_comentario  bigserial     constraint pk_comentarios primary key,
-            id_usuario     bigint        constraint fk_noticias_usuarios
-                                         references usuarios(id)
-                                         on delete no action on update cascade,
-            votos          numeric(6)    default 0,
-            cuerpo         varchar(500)  not null,
-            created_at     timestamptz   default current_timestamp
-        );
+    create table comentarios (
+        id_comentario  bigserial         constraint pk_comentarios primary key,
+        id_usuario        bigint              constraint fk_noticias_usuarios
+                                                        references usuarios(id)
+                                                        on delete no action on update cascade,
+        votos                 numeric(6)     default 0,
+        cuerpo               varchar(500)  not null,
+        created_at         timestamptz   default current_timestamp,
+        id_consulta          bigint          not null constraint fk_comentarios_consultas
+                                                        references consultas(id_consulta) on delete no action
+                                                        on update cascade
+    );
 
-        create index idx_comentarios_votos on comentarios (votos);
-        create index idx_comentarios_create_at on comentarios (created_at);
-
-        drop table if exists comentarios_consultas cascade;
-
-        create table comentarios_consultas (
-            id_comentario_consulta   bigserial constraint pk_comentarios_consultas primary key,
-            id_comentario           bigint    constraint fk_comentarios_comentarios
-                                              references comentarios (id_comentario)
-                                              on delete no action on update cascade,
-            id_consulta              bigint    constraint fk_noticias_consultas
-                                              references consultas(id_consulta)
-                                              on delete no action on update cascade
-        );
+    create index idx_comentarios_votos on comentarios (votos);
+    create index idx_comentarios_create_at on comentarios (created_at);
