@@ -7,7 +7,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 /**
- * NoticiasController implements the CRUD actions for Noticia model.
+ * ConsultasController implements the CRUD actions for Consulta model.
  */
 class ConsultasController extends Controller
 {
@@ -26,7 +26,7 @@ class ConsultasController extends Controller
         ];
     }
     /**
-     * Lists all Noticia models.
+     * Lists all Consulta models.
      * @return mixed
      */
     public function actionIndex()
@@ -39,7 +39,7 @@ class ConsultasController extends Controller
         ]);
     }
     /**
-     * Displays a single Noticia model.
+     * Displays a single Consulta model.
      * @param integer $id
      * @return mixed
      */
@@ -50,7 +50,7 @@ class ConsultasController extends Controller
         ]);
     }
     /**
-     * Creates a new Noticia model.
+     * Creates a new Consulta model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
@@ -58,16 +58,15 @@ class ConsultasController extends Controller
     {
         $model = new Consulta();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_consulta]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'categorias' => $model->categorias,
             ]);
         }
     }
     /**
-     * Updates an existing Noticia model.
+     * Updates an existing Consulta model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -76,7 +75,7 @@ class ConsultasController extends Controller
     {
         $model = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id_consulta]);
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -84,7 +83,7 @@ class ConsultasController extends Controller
         }
     }
     /**
-     * Deletes an existing Noticia model.
+     * Deletes an existing Consulta model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -95,10 +94,10 @@ class ConsultasController extends Controller
         return $this->redirect(['index']);
     }
     /**
-     * Finds the Noticia model based on its primary key value.
+     * Finds the Consulta model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Noticia the loaded model
+     * @return Consulta the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
