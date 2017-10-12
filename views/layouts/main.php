@@ -22,6 +22,19 @@ AppAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style media="screen">
+        .my-navbar {
+            background-color: #fc6000;
+            color: white;
+        }
+        .navbar-text {
+            background-color: lightgrey;
+        }
+        p.navbar-text a {
+            color: #fc6000;
+            background-color: lightgrey;
+        }
+    </style>
     <?= Html::csrfMetaTags() ?>
     <?= Html::img('images/logo.png');?>
     <title>Te Ayudo</title>
@@ -42,7 +55,7 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
+            ['label' => 'Temas', 'url' => ['/site/index']],
             ['label' => 'Conócenos', 'url' => ['/site/about']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Mi perfil', 'url' => ['/site/login']]
