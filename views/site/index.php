@@ -30,7 +30,7 @@ $this->title = 'My Yii Application';
 
     <div class="container">
         <ul class="nav nav-pills nav-justified">
-            <li><a href="#"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true">
+            <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true">
             </span> Hogar</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-plane" aria-hidden="true">
             </span> Abogados</a></li>
@@ -61,7 +61,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-4">
                 <h2>Temas de ayuda</h2>
 
-                <p>aaaaaaaaaaaaAquí hay una relación de los principales temas donde otros usuarios han pedido ayuda o están siendo aclaradas dudas sobre todo tipo
+                <p>Aquí hay una relación de los principales temas donde otros usuarios han pedido ayuda o están siendo aclaradas dudas sobre todo tipo
                 de temas profesionales como albañilería, informática, fontanería, abogacía, ...</p>
 
                 <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">ir a temas &raquo;</a></p>

@@ -6,28 +6,31 @@ $this->title = $model->titulo;
 $this->params['breadcrumbs'][] = ['label' => 'Noticias', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="noticia-view">
+<div class="noticia-view" id="notVi">
 
 
-
-    <p>
+    <div class="page-header">
         <h2><a href="<?=$model->enlace ?>"> <?= $model->titulo ?></a></h2>
-    </p>
-    <p><?= $model->cuerpo ?></p>
-    <p>
+      </div>
+
+    <p id="cuerpo"><?= $model->cuerpo ?></p>
+    <p class="notPub">
         <!-- subido por :?= $model->usuario->nombre?> | -->
         <!-- tipo:    $model->tipoNoticia->tipo?> | -->
-        fecha:<?= $model->publicado ?>
-    </p><br><br>
-    <!-- <h3>Comentarios (?= $numComentarios; ?>)</h3><br><br> -->
-    <p>
-        <!-- Html::a('Profile', ['user/view', 'id' => $id], ['class' => 'profile-link'])  -->
-        <?= Html::a(
-            'Comentar',
-            ['../comentarios/create', 'id_noticia' => $model->id],
-            ['class' => 'btn btn-success']
-        ); ?>
+        Publicado:<?= $model->publicado ?>
     </p>
+    <!-- <h3>Comentarios (?= $numComentarios; ?>)</h3><br><br> -->
+</div>
+<div class="botonComentar">
+        <p>
+            <!-- Html::a('Profile', ['user/view', 'id' => $id], ['class' => 'profile-link'])  -->
+            <?= Html::a(
+                'Comentar',
+                ['../comentarios/create', 'id_noticia' => $model->id],
+                ['class' => 'btn btn-success']
+            ); ?>
+        </p>   
+</div>
     <!-- php foreach ($comentarios as $comentario) {?> -->
         <!-- <div class="bg-info">
             <p>Autor del comentario:?= $comentario->usuario->nombre ?></p>

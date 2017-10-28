@@ -13,18 +13,26 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Noticia', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear noticia', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
-            'id',
-            'titulo',
-            'cuerpo:ntext',
+            [
+                'attribute' => 'titulo',
+                'value' => function ($model, $widget) {
+                    return Html::a(
+                        Html::encode($model->titulo),
+                        ['noticias/view', 'id' => $model->id]
+                    );
+                },
+                'label' => 'Origen',
+                'format' => 'html',
+            ],
+            // 'cuerpo:ntext',
             'enlace',
-            'publicado',
+            'publicado:datetime',
             // 'tipo_noticia',
             // 'id_usuario',
             ['class' => 'yii\grid\ActionColumn'],
