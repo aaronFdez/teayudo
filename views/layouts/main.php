@@ -28,7 +28,7 @@ AppAsset::register($this);
             color: white;
         }
         .navbar-text {
-            background-color: lightgrey;
+            background-color: blue; //lightgrey
         }
         p.navbar-text a {
             color: #fc6000;

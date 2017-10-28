@@ -37,7 +37,7 @@ $this->title = 'My Yii Application';
             <li><a href="#"><span class="glyphicon glyphicon-expand" aria-hidden="true">
             </span> Informática</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-flash" aria-hidden="true">
-            </span> StratUps</a></li>
+            </span> Cocina</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-knight" aria-hidden="true">
             </span> VideoJuegos</a></li>
         </ul>
