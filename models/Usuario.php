@@ -116,6 +116,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return self::findOne(['nombre' => $nombre]);
     }
+
     public function getId()
     {
         return $this->id;
@@ -137,7 +138,11 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return Yii::$app->security->validatePassword($password, $this->password);
     }
 
-    
+    // public function getConsultas()
+    // {
+    //     return $this->hasMany(Consulta::className(), ['consulta_id' => 'id'])->inverseOf('usuario');
+    // }
+
     public function beforeSave($insert)
     {
         if (!parent::beforeSave($insert)) {
