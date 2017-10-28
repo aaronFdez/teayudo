@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'format' => 'html',
             ],
             // 'cuerpo:ntext',
-            'enlace',
+            'tipo_noticia',
             'publicado:datetime',
             // 'tipo_noticia',
             // 'id_usuario',

@@ -2,7 +2,7 @@
 namespace app\controllers;
 use Yii;
 use app\models\Noticia;
-// use app\models\TipoNoticia;
+use app\models\TipoNoticia;
 use app\models\NoticiaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -101,10 +101,10 @@ class NoticiasController extends Controller
                 return $this->redirect(['view', 'id' => $model->id]);
             }
         } else {
-            // $tipos = TipoNoticia::find()->select('tipo, id')->orderBy('tipo')->indexBy('id')->column();
+             $tipos = TipoNoticia::find()->select('tipo, id')->orderBy('tipo')->indexBy('id')->column();
             return $this->render('create', [
                     'model' => $model,
-                    // 'tipos' => $tipos,
+                     'tipos' => $tipos,
                 ]);
         }
     }

@@ -14,7 +14,19 @@ create table usuarios (
    --                                                on delete no action on update cascade
 );
 insert into usuarios (nombre, password, tipo)
-values ('admin', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A');
+values ('admin', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A'),
+('paco','$2y$13$UGOQzx4iucABdBL2swT8VOOoSjSU6a7hA6qeHIC5/zcYM6AkH5nm.','U');
+
+drop table if exists tipo_noticia cascade;
+
+create table tipo_noticia (
+    id           bigserial      constraint pk_tipo_noticias primary key,
+    tipo         varchar(255)   not null
+);
+
+insert into tipo_noticia ( tipo)
+values ('Hogar'),('Legal'), ('Tecnología'),('Videojuegos'),('Otros');
+
 
 drop table if exists noticias cascade;
 
@@ -23,10 +35,10 @@ create table noticias (
     titulo       varchar(255)   not null,
     cuerpo       text           not null,
     enlace       varchar(255)   not null,
-    publicado    timestamptz    default current_timestamp
-    -- tipo_noticia bigint         not null constraint fk_noticias_tipo_noticia
-    --                             references tipo_noticia(id) on delete cascade
-    --                             on update cascade,
+    publicado    timestamptz    default current_timestamp,
+    tipo_noticia bigint         not null constraint fk_noticias_tipo_noticia
+                                references tipo_noticia(id) on delete cascade
+                                on update cascade
     -- id_usuario   bigint         not null constraint fk_noticias_usuarios
     --                             references usuarios(id) on delete cascade
     --                             on update cascade

@@ -5,6 +5,9 @@ use yii\helpers\Html;
 $this->title = $model->titulo;
 $this->params['breadcrumbs'][] = ['label' => 'Noticias', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$formatter = \Yii::$app->formatter;
+$fecha = $formatter ->asDate( $model->publicado , 'long' );
 ?>
 <div class="noticia-view" id="notVi">
 
@@ -16,8 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <p id="cuerpo"><?= $model->cuerpo ?></p>
     <p class="notPub">
         <!-- subido por :?= $model->usuario->nombre?> | -->
-        <!-- tipo:    $model->tipoNoticia->tipo?> | -->
-        Publicado:<?= $model->publicado ?>
+        Tipo:<?=  $model->tipoNoticia->tipo?> |
+        Publicado el  <?= $fecha ?>
     </p>
     <!-- <h3>Comentarios (?= $numComentarios; ?>)</h3><br><br> -->
 </div>
@@ -29,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ['../comentarios/create', 'id_noticia' => $model->id],
                 ['class' => 'btn btn-success']
             ); ?>
-        </p>   
+        </p>
 </div>
     <!-- php foreach ($comentarios as $comentario) {?> -->
         <!-- <div class="bg-info">

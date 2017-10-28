@@ -30,12 +30,12 @@ class Noticia extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['titulo', 'cuerpo', 'enlace',  ], 'required'], // quito idusuario y tipo_noticia
+            [['titulo', 'cuerpo', 'enlace', 'tipo_noticia' ], 'required'], // quito id_usuario
             [['cuerpo'], 'string'],
             [['publicado'], 'safe'],
-            // [['tipo_noticia', 'id_usuario'], 'integer'],
+            [['tipo_noticia'], 'integer'],// quito id_usuario
             [['titulo', 'enlace'], 'string', 'max' => 255],
-            // [['tipo_noticia'], 'exist', 'skipOnError' => true, 'targetClass' => TipoNoticia::className(), 'targetAttribute' => ['tipo_noticia' => 'id']],
+             [['tipo_noticia'], 'exist', 'skipOnError' => true, 'targetClass' => TipoNoticia::className(), 'targetAttribute' => ['tipo_noticia' => 'id']],
             // [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['id_usuario' => 'id']],
         ];
     }
@@ -50,10 +50,17 @@ class Noticia extends \yii\db\ActiveRecord
             'cuerpo' => 'Cuerpo',
             'enlace' => 'Enlace',
             'publicado' => 'Publicado',
-            // 'tipo_noticia' => 'Tipo Noticia',
+            'tipo_noticia' => 'Tipo Noticia',
             // 'id_usuario' => 'Id Usuario',
         ];
     }
+
+    public function getTipo()
+    {
+        return $this->tipo_noticia;
+
+    }
+
     /**
      * Devuelve el número de comentarios que tiene una noticia concreta
      * @param  int $id_noticia El id de la noticia
@@ -73,10 +80,10 @@ class Noticia extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    // public function getTipoNoticia()
-    // {
-    //     return $this->hasOne(TipoNoticia::className(), ['id' => 'tipo_noticia'])->inverseOf('noticias');
-    // }
+    public function getTipoNoticia()
+    {
+        return $this->hasOne(TipoNoticia::className(), ['id' => 'tipo_noticia'])->inverseOf('noticias');
+    }
     /**
      * @return \yii\db\ActiveQuery
      */

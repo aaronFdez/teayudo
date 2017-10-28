@@ -142,7 +142,10 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     // {
     //     return $this->hasMany(Consulta::className(), ['consulta_id' => 'id'])->inverseOf('usuario');
     // }
-
+    public function esAdmin()
+        {
+            return $this->nombre === 'admin';
+        }
     public function beforeSave($insert)
     {
         if (!parent::beforeSave($insert)) {

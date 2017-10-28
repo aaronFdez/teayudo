@@ -2,22 +2,15 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-/* @var $model app\models\Noticia */
+/* @var $model app\models\TipoNoticia */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="noticia-form">
+<div class="tipo-noticia-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'titulo')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'cuerpo')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'enlace')->textInput(['maxlength' => true]) ?>
-
-     <?= $form->field($model, 'tipo_noticia')->textInput()->dropDownList($tipos)  ?>
-
+    <?= $form->field($model, 'tipo')->textInput(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
