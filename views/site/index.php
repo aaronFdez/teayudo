@@ -61,7 +61,7 @@ $this->title = 'My Yii Application';
             <div class="col-lg-4">
                 <h2>Temas de ayuda</h2>
 
-                <p>Aquí hay una relación de los principales temas donde otros usuarios han pedido ayuda o están siendo aclaradas dudas sobre todo tipo
+                <p>aaaaaaaaaaaaAquí hay una relación de los principales temas donde otros usuarios han pedido ayuda o están siendo aclaradas dudas sobre todo tipo
                 de temas profesionales como albañilería, informática, fontanería, abogacía, ...</p>
 
                 <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">ir a temas &raquo;</a></p>
@@ -77,7 +77,7 @@ $this->title = 'My Yii Application';
                 <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <h2>Ahora</h2>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
