@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <p><?= $model->cuerpo ?></p>
     <p>
-        subido por :<?= $model->usuario->nombre?> |
-        tipo:<?= $model->tipoNoticia->tipo?> |
+        <!-- subido por :?= $model->usuario->nombre?> | -->
+        <!-- tipo:    $model->tipoNoticia->tipo?> | -->
         fecha:<?= $model->publicado ?>
     </p><br><br>
-    <h3>Comentarios (<?= $numComentarios; ?>)</h3><br><br>
+    <!-- <h3>Comentarios (?= $numComentarios; ?>)</h3><br><br> -->
     <p>
         <!-- Html::a('Profile', ['user/view', 'id' => $id], ['class' => 'profile-link'])  -->
         <?= Html::a(
@@ -28,13 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'btn btn-success']
         ); ?>
     </p>
-    <?php foreach ($comentarios as $comentario) {?>
-        <div class="bg-info">
-            <p>Autor del comentario:<?= $comentario->usuario->nombre ?></p>
-            <p><?= $comentario->comentario ?></p>
-            <p>Fecha comentario:<?= $comentario->fecha ?></p>
+    <!-- php foreach ($comentarios as $comentario) {?> -->
+        <!-- <div class="bg-info">
+            <p>Autor del comentario:?= $comentario->usuario->nombre ?></p>
+            <p>?= $comentario->comentario ?></p>
+            <p>Fecha comentario:?= $comentario->fecha ?></p>
         </div>
-        <?php } ?>
-    </div><?=
+        ?php } ?>
+    </div>?=
     // Yii::$app->controller->renderPartial('../comentarios/_form', ['model' => $comentarioNuevo]);
-?>
+?>-->

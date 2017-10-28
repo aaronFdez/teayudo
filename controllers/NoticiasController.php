@@ -26,28 +26,28 @@ class NoticiasController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete', 'index'],
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'actions' => ['create','update', 'view', 'delete', 'index'],
-                        'roles' => ['@'],
-                        'matchCallback' => function ($rule, $action) {
-                            return Yii::$app->user->esAdmin;
-                        }
-                    ],
-                    [
-                        'allow' => true,
-                        'actions' => ['create', 'view'],
-                        'roles' => ['@'],
-                        'matchCallback' => function ($rule, $action) {
-                            return !Yii::$app->user->isGuest;
-                        }
-                    ],
-                ],
-            ],
+            // 'access' => [
+            //     'class' => AccessControl::className(),
+            //     'only' => ['create', 'update', 'delete', 'index'],
+            //     // 'rules' => [
+            //     //     [
+            //     //         'allow' => true,
+            //     //         'actions' => ['create','update', 'view', 'delete', 'index'],
+            //     //         'roles' => ['@'],
+            //     //         'matchCallback' => function ($rule, $action) {
+            //     //             return Yii::$app->user->esAdmin;
+            //     //         }
+            //     //     ],
+            //     //     [
+            //     //         'allow' => true,
+            //     //         'actions' => ['create', 'view'],
+            //     //         'roles' => ['@'],
+            //     //         'matchCallback' => function ($rule, $action) {
+            //     //             return !Yii::$app->user->isGuest;
+            //     //         }
+            //     //     ],
+            //     // ],
+            // ],
         ];
     }
     /**
