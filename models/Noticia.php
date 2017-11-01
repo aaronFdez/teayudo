@@ -24,19 +24,21 @@ class Noticia extends \yii\db\ActiveRecord
     {
         return 'noticias';
     }
+
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['titulo', 'cuerpo', 'enlace', 'tipo_noticia' ], 'required'], // quito id_usuario
+            [['titulo', 'cuerpo', 'enlace', 'tipo_noticia','id_usuario' ], 'required'], // quito id_usuario
             [['cuerpo'], 'string'],
             [['publicado'], 'safe'],
-            [['tipo_noticia'], 'integer'],// quito id_usuario
+            [['tipo_noticia','id_usuario'], 'integer'],// quito id_usuario
             [['titulo', 'enlace'], 'string', 'max' => 255],
-             [['tipo_noticia'], 'exist', 'skipOnError' => true, 'targetClass' => TipoNoticia::className(), 'targetAttribute' => ['tipo_noticia' => 'id']],
-            // [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['id_usuario' => 'id']],
+            [['tipo_noticia'], 'exist', 'skipOnError' => true, 'targetClass' => TipoNoticia::className(), 'targetAttribute' => ['tipo_noticia' => 'id']],
+            [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['id_usuario' => 'id']],
         ];
     }
     /**
@@ -51,7 +53,7 @@ class Noticia extends \yii\db\ActiveRecord
             'enlace' => 'Enlace',
             'publicado' => 'Publicado',
             'tipo_noticia' => 'Tipo Noticia',
-            // 'id_usuario' => 'Id Usuario',
+            'id_usuario' => 'Id Usuario',
         ];
     }
 
@@ -87,8 +89,13 @@ class Noticia extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    // public function getUsuario()
-    // {
-    //     return $this->hasOne(Usuario::className(), ['id' => 'id_usuario'])->inverseOf('noticias');
-    // }
+    public function getUsuario()
+    {
+        return $this->hasOne(Usuario::className(), ['id' => 'id_usuario'])->inverseOf('noticias');
+    }
+
+    public function getNombre()
+    {
+        return $this->usuario->nombre;
+    }
 }

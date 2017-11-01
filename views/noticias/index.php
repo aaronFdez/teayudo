@@ -34,7 +34,18 @@ $this->params['breadcrumbs'][] = $this->title;
             'tipo_noticia',
             'publicado:datetime',
             // 'tipo_noticia',
-            // 'id_usuario',
+            'id_usuario',
+            [
+                'attribute' => 'id_usuario',
+                'value' => function ($model, $widget) {
+                    return Html::a(
+                        Html::encode($model->getUsuario->nombre),
+                        ['usuarios/view', 'id' => $model->id_usuario]
+                    );
+                },
+                'format' => 'html',
+                'label' => 'Nombre del autor',
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

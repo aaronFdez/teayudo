@@ -3,8 +3,10 @@ namespace app\controllers;
 use Yii;
 use app\models\Noticia;
 use app\models\TipoNoticia;
+use app\models\Usuario;
 use app\models\NoticiaSearch;
 use yii\web\Controller;
+use app\components\UsuariosHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 // use app\models\Comentario;
@@ -26,28 +28,28 @@ class NoticiasController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
-            // 'access' => [
-            //     'class' => AccessControl::className(),
-            //     'only' => ['create', 'update', 'delete', 'index'],
-            //     // 'rules' => [
-            //     //     [
-            //     //         'allow' => true,
-            //     //         'actions' => ['create','update', 'view', 'delete', 'index'],
-            //     //         'roles' => ['@'],
-            //     //         'matchCallback' => function ($rule, $action) {
-            //     //             return Yii::$app->user->esAdmin;
-            //     //         }
-            //     //     ],
-            //     //     [
-            //     //         'allow' => true,
-            //     //         'actions' => ['create', 'view'],
-            //     //         'roles' => ['@'],
-            //     //         'matchCallback' => function ($rule, $action) {
-            //     //             return !Yii::$app->user->isGuest;
-            //     //         }
-            //     //     ],
-            //     // ],
-            // ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['create', 'update', 'delete', 'index'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['create','update', 'view', 'delete', 'index'],
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            return UsuariosHelper::isAdmin();
+                        }
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['create', 'view'],
+                        'roles' => ['@'],
+                        'matchCallback' => function ($rule, $action) {
+                            return !Yii::$app->user->isGuest;
+                        }
+                    ],
+                ],
+            ],
         ];
     }
     /**
@@ -80,6 +82,7 @@ class NoticiasController extends Controller
         // }
         // $comentarios = Comentario::findAll(['id_noticia' => $id]);
         // $numComentarios = count($comentarios);
+        
         return $this->render('view', [
             'model' => $this->findModel($id),
             // 'comentarios' => $comentarios,
@@ -96,7 +99,7 @@ class NoticiasController extends Controller
     {
         $model = new Noticia();
         if ($model->load(Yii::$app->request->post())) {
-            // $model->id_usuario = Yii::$app->user->id;
+            $model->id_usuario = Yii::$app->user->id;
             if ($model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             }
@@ -120,10 +123,10 @@ class NoticiasController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            // $tipos = TipoNoticia::find()->select('tipo, id')->orderBy('tipo')->indexBy('id')->column();
+             $tipos = TipoNoticia::find()->select('tipo, id')->orderBy('tipo')->indexBy('id')->column();
             return $this->render('update', [
                 'model' => $model,
-                // 'tipos' => $tipos,
+                 'tipos' => $tipos,
             ]);
         }
     }

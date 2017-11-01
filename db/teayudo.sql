@@ -38,43 +38,12 @@ create table noticias (
     publicado    timestamptz    default current_timestamp,
     tipo_noticia bigint         not null constraint fk_noticias_tipo_noticia
                                 references tipo_noticia(id) on delete cascade
+                                on update cascade,
+    id_usuario   bigint         not null constraint fk_noticias_usuarios
+                                references usuarios(id) on delete cascade
                                 on update cascade
-    -- id_usuario   bigint         not null constraint fk_noticias_usuarios
-    --                             references usuarios(id) on delete cascade
-    --                             on update cascade
 );
 
-
---
--- drop table if exists tipo_consultas cascade;
---
--- create table tipo_consultas (
---     id           bigserial          constraint pk_tipo_consultas primary key,
---     tipo        varchar(200)   not null
--- );
---
-
--- drop table if exists consultas cascade;
--- create table consultas (
---     id                   bigserial          constraint pk_consultas primary key,
---     id_usuario      bigint              constraint fk_consultas_usuarios
---                                                   references usuarios (id)
---                                                   on delete no action on update cascade,
---     titulo               varchar(55)    not null,
---     cuerpo             varchar(500)  not null,
---     gusta                numeric(6)    default 0,
---     -- enlace               varchar(200)  not null,
---     -- tipo_consultas  bigint             constraint fk_noticias_tipo_consultas
---     --                                                 references tipo_consultas(id)
---     --                                                 on delete no action on update cascade,
---     publicado   timestamptz          default current_timestamp
--- );
-
--- create index idx_consultas_titulo on consultas (titulo);
--- create index idx_consultas_publicado on consultas (publicado);
---     insert into consultas (titulo,cuerpo)
---     values ('prueba', 'ola que ase' );
---
 -- drop table if exists comentarios cascade;
 --
 -- create table comentarios (

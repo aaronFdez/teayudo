@@ -18,7 +18,7 @@ $fecha = $formatter ->asDate( $model->publicado , 'long' );
 
     <p id="cuerpo"><?= $model->cuerpo ?></p>
     <p class="notPub">
-        <!-- subido por :?= $model->usuario->nombre?> | -->
+        <!-- Subido por := $model->usuario->nombre ?>  -->
         Tipo:<?=  $model->tipoNoticia->tipo?> |
         Publicado el  <?= $fecha ?>
     </p>

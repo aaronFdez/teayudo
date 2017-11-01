@@ -14,7 +14,7 @@ class NoticiaSearch extends Noticia
     public function rules()
     {
         return [
-            [['id','tipo_noticia' ], 'integer'],// quito ' 'id_usuario'
+            [['id','tipo_noticia','id_usuario' ], 'integer'],
             [['titulo', 'cuerpo', 'enlace', 'publicado'], 'safe'],
         ];
     }
@@ -51,7 +51,7 @@ class NoticiaSearch extends Noticia
             'id' => $this->id,
             'publicado' => $this->publicado,
             'tipo_noticia' => $this->tipo_noticia,
-            // 'id_usuario' => $this->id_usuario,
+            'id_usuario' => $this->id_usuario,
         ]);
         $query->andFilterWhere(['like', 'titulo', $this->titulo])
             ->andFilterWhere(['like', 'cuerpo', $this->cuerpo])

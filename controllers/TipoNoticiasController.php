@@ -4,6 +4,7 @@ use Yii;
 use app\models\TipoNoticia;
 use app\models\TipoNoticiaSearch;
 use yii\web\Controller;
+use app\components\UsuariosHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -33,7 +34,7 @@ class TipoNoticiasController extends Controller
                         'actions' => ['create', 'update', 'view', 'delete', 'index'],
                         'roles' => ['@'],
                         'matchCallback' => function ($rule, $action) {
-                            return Yii::$app->user->esAdmin;
+                            return UsuariosHelper::isAdmin();
                         }
                     ],
                 ],

@@ -127,12 +127,19 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function validateAuthKey($authKey)
     {
     }
-    /**
-     * Valida la contraseña
-     *
-     * @param string $password contraseña a validar
-     * @return bool si la contraseña indicada es la correcta para el usuario
-     */
+
+
+     public function getNoticias()
+     {
+         return $this->hasMany(Noticia::className(), ['id_usuario' => 'id'])->inverseOf('usuario');
+     }
+
+     /**
+      * Valida la contraseña
+      *
+      * @param string $password contraseña a validar
+      * @return bool si la contraseña indicada es la correcta para el usuario
+      */
     public function validatePassword($password)
     {
         return Yii::$app->security->validatePassword($password, $this->password);
