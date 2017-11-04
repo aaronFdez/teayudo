@@ -3,6 +3,8 @@ use app\components\UsuariosHelper;
 use yii\helpers\Url;
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\Pjax;
+use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Usuario */
 $this->title = $model->nombre;
@@ -40,4 +42,25 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+<h2>Noticias publicadas</h2>
+
+    <?php Pjax::begin() ?>
+
+    <?= GridView::widget([
+        'dataProvider' => $dataProviderNoticias,
+        'columns' => [
+            [
+                'attribute' => 'nombre',
+                'value' => function ($model, $widget) {
+                    return Html::a(
+                        Html::encode($model->titulo),
+                        ['noticias/view', 'id' => $model->id]
+                    );
+                },
+                'format' => 'html',
+            ],
+        ],
+    ]) ?>
+
+    <?php Pjax::end() ?>
 </div>

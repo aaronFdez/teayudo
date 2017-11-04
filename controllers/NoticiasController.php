@@ -36,9 +36,9 @@ class NoticiasController extends Controller
                         'allow' => true,
                         'actions' => ['create','update', 'view', 'delete', 'index'],
                         'roles' => ['@'],
-                        'matchCallback' => function ($rule, $action) {
-                            return UsuariosHelper::isAdmin();
-                        }
+                        // 'matchCallback' => function ($rule, $action) {
+                        //     return UsuariosHelper::isAdmin();
+                        // }
                     ],
                     [
                         'allow' => true,
@@ -82,7 +82,7 @@ class NoticiasController extends Controller
         // }
         // $comentarios = Comentario::findAll(['id_noticia' => $id]);
         // $numComentarios = count($comentarios);
-        
+
         return $this->render('view', [
             'model' => $this->findModel($id),
             // 'comentarios' => $comentarios,

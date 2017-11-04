@@ -30,23 +30,32 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Origen',
                 'format' => 'html',
             ],
-            // 'cuerpo:ntext',
-            'tipo_noticia',
+            [
+                'attribute' => 'tipo_noticia',
+                'value' => function ($model, $widget) {
+                    return Html::a(
+                        Html::encode($model->tipoNoticia->tipo),
+                        ['tipo-noticias/view', 'id' => $model->tipo_noticia]
+                    );
+                },
+                'format' => 'html',
+                'label' => 'Tipo noticia',
+            ],
             'publicado:datetime',
             // 'tipo_noticia',
-            'id_usuario',
+            // ,
             [
                 'attribute' => 'id_usuario',
                 'value' => function ($model, $widget) {
                     return Html::a(
-                        Html::encode($model->getUsuario->nombre),
-                        ['usuarios/view', 'id' => $model->id_usuario]
+                        Html::encode($model->usuario->nombre),
+                        ['usuarios/view', 'id' => $model->usuario->id]
                     );
                 },
                 'format' => 'html',
                 'label' => 'Nombre del autor',
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            // ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

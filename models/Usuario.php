@@ -5,6 +5,9 @@ use app\components\UsuariosHelper;
 use yii\helpers\Url;
 use yii\web\UploadedFile;
 use yii\imagine\Image;
+use yii\data\Sort;
+use yii\data\Pagination;
+use yii\data\ActiveDataProvider;
 /**
  * This is the model class for table "usuarios".
  *
@@ -126,6 +129,32 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
     public function validateAuthKey($authKey)
     {
+    }
+
+    public function verNoticias()
+    {
+        return new ActiveDataProvider([
+            'query' => $this->getNoticias(),
+            'pagination' => new Pagination([
+                'pageSize' => 5,
+                'pageParam' => 'pageDisp',
+            ]),
+            // 'sort' => new Sort([
+            //     'sortParam' => 'sortDisp',
+            //     'attributes' => [
+            //         'nombre' => [
+            //             'asc' => [
+            //                 'marca_disp' => SORT_ASC,
+            //                 'modelo_disp' => SORT_ASC,
+            //             ],
+            //             'desc' => [
+            //                 'marca_disp' => SORT_DESC,
+            //                 'modelo_disp' => SORT_DESC,
+            //             ],
+            //         ],
+            //     ],
+            // ])
+        ]);
     }
 
 
