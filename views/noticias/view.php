@@ -9,6 +9,9 @@ $this->params['breadcrumbs'][] = $this->title;
 $formatter = \Yii::$app->formatter;
 $fecha = $formatter ->asDate( $model->publicado , 'long' );
 ?>
+<p class="notPub">
+    Noticia publicada el <?= $fecha ?> por el usuario  "<?= $model->usuario->nombre ?>"
+</p>
 <div class="noticia-view" id="notVi">
 
 
@@ -17,11 +20,6 @@ $fecha = $formatter ->asDate( $model->publicado , 'long' );
       </div>
 
     <p id="cuerpo"><?= $model->cuerpo ?></p>
-    <p class="notPub">
-        <!-- Subido por := $model->usuario->nombre ?>  -->
-        Tipo:<?=  $model->tipoNoticia->tipo?> |
-        Publicado el  <?= $fecha ?>
-    </p>
     <!-- <h3>Comentarios (?= $numComentarios; ?>)</h3><br><br> -->
 </div>
 <div class="botonComentar">

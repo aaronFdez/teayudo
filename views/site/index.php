@@ -21,6 +21,11 @@ $this->title = 'My Yii Application';
             color: #fc6000;
             background-color: lightgrey;
         }
+
+        #w0 {
+            background-color: #0c406f;
+            color:white;
+        }
     </style>
 </head>
 
@@ -32,25 +37,23 @@ $this->title = 'My Yii Application';
         <ul class="nav nav-pills nav-justified">
             <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true">
             </span> Hogar</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-plane" aria-hidden="true">
+            <li><a href="#"><span class="glyphicon glyphicon-education" aria-hidden="true">
             </span> Abogados</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-expand" aria-hidden="true">
-            </span> Informática</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-flash" aria-hidden="true">
-            </span> Cocina</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-phone" aria-hidden="true">
+            </span>Tecnología</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-knight" aria-hidden="true">
             </span> VideoJuegos</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true">
+            </span> Otros</a></li>
         </ul>
-        <p class="navbar-text navbar-left">
-            <?= Html::a('Crear consulta', ['/consultas/create'], ['class' => 'btn btn-success']) ?>
-        </p>
+
     </div>
 
 </div>
 
 <div class="site-index">
     <div class="jumbotron">
-        <h1>Bienvenido </h1>
+        <h1>Bienvenido a </h1>
         <?= Html::img('@web/fotos/logotipo.png', ['alt'=>'Logo']);?>
 
     </div>

@@ -36,11 +36,11 @@ body {
     font-style: italic;
 }
 
+/* estilos */
+
 .noticia-view {
-    margin-top: 100px;
     border: 2px solid black;
     border-radius: 10px;
-    background-color: lightgrey;
 }
 
 .noticia-view h2 {
@@ -51,6 +51,7 @@ body {
 }
 
 #cuerpo {
+    width: 70%;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -59,9 +60,9 @@ body {
 }
 
 .notPub {
-    background-color: lightgrey;
+    margin-bottom: 50px;
+    margin-top: 50px;
     font-size: 1.3em;
-    text-align: center;
 }
 
 .botonComentar {
