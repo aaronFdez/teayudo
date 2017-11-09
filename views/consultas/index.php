@@ -2,18 +2,18 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\NoticiaSearch */
+/* @var $searchModel app\models\ConsultaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-$this->title = 'Noticias';
+$this->title = 'Consultas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="noticia-index">
+<div class="consulta-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Crear noticia', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear consulta', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,25 +24,25 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model, $widget) {
                     return Html::a(
                         Html::encode($model->titulo),
-                        ['noticias/view', 'id' => $model->id]
+                        ['consultas/view', 'id' => $model->id]
                     );
                 },
                 'label' => 'Origen',
                 'format' => 'html',
             ],
             [
-                'attribute' => 'tipo_noticia',
+                'attribute' => 'tipo_consulta',
                 'value' => function ($model, $widget) {
                     return Html::a(
-                        Html::encode($model->tipoNoticia->tipo),
-                        ['tipo-noticias/view', 'id' => $model->tipo_noticia]
+                        Html::encode($model->tipoConsulta->tipo),
+                        ['tipo-consultas/view', 'id' => $model->tipo_consulta]
                     );
                 },
                 'format' => 'html',
-                'label' => 'Tipo noticia',
+                'label' => 'Tipo consulta',
             ],
             'publicado:datetime',
-            // 'tipo_noticia',
+            // 'tipo_consulta',
             // ,
             [
                 'attribute' => 'id_usuario',

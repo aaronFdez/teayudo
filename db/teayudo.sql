@@ -17,29 +17,37 @@ insert into usuarios (nombre, password, tipo)
 values ('admin', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A'),
 ('paco','$2y$13$UGOQzx4iucABdBL2swT8VOOoSjSU6a7hA6qeHIC5/zcYM6AkH5nm.','U');
 
-drop table if exists tipo_noticia cascade;
+-- drop table if exists tipo_consulta cascade;
+--
+-- create table tipo_consulta (
+--     id           bigserial      constraint pk_tipo_consultas primary key,
+--     tipo         varchar(255)   not null
+-- );
+-- insert into tipo_consulta ( tipo)
+--     values ('Hogar'),('Legal'), ('Tecnología'),('Videojuegos'),('Otros');
 
-create table tipo_noticia (
-    id           bigserial      constraint pk_tipo_noticias primary key,
+drop table if exists tipo_consulta cascade;
+
+create table tipo_consulta (
+    id           bigserial      constraint pk_tipo_consulta primary key,
     tipo         varchar(255)   not null
 );
 
-insert into tipo_noticia ( tipo)
+insert into tipo_consulta ( tipo)
 values ('Hogar'),('Legal'), ('Tecnología'),('Videojuegos'),('Otros');
 
+drop table if exists consultas cascade;
 
-drop table if exists noticias cascade;
-
-create table noticias (
-    id           bigserial      constraint pk_noticias primary key,
+create table consultas (
+    id           bigserial      constraint pk_consultas primary key,
     titulo       varchar(255)   not null,
     cuerpo       text           not null,
     enlace       varchar(255)   not null,
     publicado    timestamptz    default current_timestamp,
-    tipo_noticia bigint         not null constraint fk_noticias_tipo_noticia
-                                references tipo_noticia(id) on delete cascade
+    tipo_consulta bigint         not null constraint fk_consultas_tipo_consulta
+                                references tipo_consulta(id) on delete cascade
                                 on update cascade,
-    id_usuario   bigint         not null constraint fk_noticias_usuarios
+    id_usuario   bigint         not null constraint fk_consultas_usuarios
                                 references usuarios(id) on delete cascade
                                 on update cascade
 );

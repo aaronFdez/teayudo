@@ -2,11 +2,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-/* @var $model app\models\Noticia */
+/* @var $model app\models\consulta */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="noticia-form">
+<div class="consulta-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'enlace')->textInput(['maxlength' => true]) ?>
 
-     <?= $form->field($model, 'tipo_noticia')->textInput()->dropDownList($tipos)  ?>
+     <?= $form->field($model, 'tipo_consulta')->textInput()->dropDownList($tipos)  ?>
 
 
     <div class="form-group">

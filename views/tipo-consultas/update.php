@@ -1,13 +1,13 @@
 <?php
 use yii\helpers\Html;
 /* @var $this yii\web\View */
-/* @var $model app\models\TipoNoticia */
-$this->title = 'Update Tipo Noticia: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Tipo Noticias', 'url' => ['index']];
+/* @var $model app\models\TipoConsulta */
+$this->title = 'Update Tipo Consulta: ' . $model->id;
+$this->params['breadcrumbs'][] = ['label' => 'Tipo Consultas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="tipo-noticia-update">
+<div class="tipo-consulta-update">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

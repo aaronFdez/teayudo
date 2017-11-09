@@ -42,19 +42,19 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-<h2>Noticias publicadas</h2>
+<h2>Consultas publicadas</h2>
 
     <?php Pjax::begin() ?>
 
     <?= GridView::widget([
-        'dataProvider' => $dataProviderNoticias,
+        'dataProvider' => $dataProviderConsultas,
         'columns' => [
             [
                 'attribute' => 'nombre',
                 'value' => function ($model, $widget) {
                     return Html::a(
                         Html::encode($model->titulo),
-                        ['noticias/view', 'id' => $model->id]
+                        ['consultas/view', 'id' => $model->id]
                     );
                 },
                 'format' => 'html',

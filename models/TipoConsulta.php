@@ -1,21 +1,21 @@
 <?php
 namespace app\models;
 /**
- * This is the model class for table "tipo_noticia".
+ * This is the model class for table "tipo_consulta".
  *
  * @property integer $id
  * @property string $tipo
  *
- * @property Noticias[] $noticias
+ * @property Consultas[] $consultas
  */
-class TipoNoticia extends \yii\db\ActiveRecord
+class TipoConsulta extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'tipo_noticia';
+        return 'tipo_consulta';
     }
     /**
      * @inheritdoc
@@ -40,8 +40,8 @@ class TipoNoticia extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getNoticias()
+    public function getConsultas()
     {
-        return $this->hasMany(Noticia::className(), ['tipo_noticia' => 'id'])->inverseOf('tipoNoticia');
+        return $this->hasMany(Consulta::className(), ['tipo_consulta' => 'id'])->inverseOf('tipoConsulta');
     }
 }

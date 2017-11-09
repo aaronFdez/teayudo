@@ -1,17 +1,17 @@
 <?php
 namespace app\controllers;
 use Yii;
-use app\models\TipoNoticia;
-use app\models\TipoNoticiaSearch;
+use app\models\TipoConsulta;
+use app\models\TipoConsultaSearch;
 use yii\web\Controller;
 use app\components\UsuariosHelper;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 /**
- * TipoNoticiasController implements the CRUD actions for TipoNoticia model.
+ * TipoConsultasController implements the CRUD actions for TipoConsulta model.
  */
-class TipoNoticiasController extends Controller
+class TipoConsultasController extends Controller
 {
     /**
      * @inheritdoc
@@ -42,12 +42,12 @@ class TipoNoticiasController extends Controller
         ];
     }
     /**
-     * Lists all TipoNoticia models.
+     * Lists all TipoConsulta models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TipoNoticiaSearch();
+        $searchModel = new TipoConsultaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -55,7 +55,7 @@ class TipoNoticiasController extends Controller
         ]);
     }
     /**
-     * Displays a single TipoNoticia model.
+     * Displays a single TipoConsulta model.
      * @param int $id
      * @return mixed
      */
@@ -66,13 +66,13 @@ class TipoNoticiasController extends Controller
         ]);
     }
     /**
-     * Creates a new TipoNoticia model.
+     * Creates a new TipoConsulta model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new TipoNoticia();
+        $model = new TipoConsulta();
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -82,7 +82,7 @@ class TipoNoticiasController extends Controller
         }
     }
     /**
-     * Updates an existing TipoNoticia model.
+     * Updates an existing TipoConsulta model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param int $id
      * @return mixed
@@ -99,7 +99,7 @@ class TipoNoticiasController extends Controller
         }
     }
     /**
-     * Deletes an existing TipoNoticia model.
+     * Deletes an existing TipoConsulta model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param int $id
      * @return mixed
@@ -110,15 +110,15 @@ class TipoNoticiasController extends Controller
         return $this->redirect(['index']);
     }
     /**
-     * Finds the TipoNoticia model based on its primary key value.
+     * Finds the TipoConsulta model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param int $id
-     * @return TipoNoticia the loaded model
+     * @return TipoConsulta the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = TipoNoticia::findOne($id)) !== null) {
+        if (($model = TipoConsulta::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

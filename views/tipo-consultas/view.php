@@ -2,12 +2,12 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 /* @var $this yii\web\View */
-/* @var $model app\models\TipoNoticia */
+/* @var $model app\models\TipoConsulta */
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Tipo Noticias', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Tipo Consultas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tipo-noticia-view">
+<div class="tipo-consulta-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

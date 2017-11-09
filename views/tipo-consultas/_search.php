@@ -2,11 +2,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-/* @var $model app\models\TipoNoticiaSearch */
+/* @var $model app\models\TipoConsultaSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="tipo-noticia-search">
+<div class="tipo-consulta-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],

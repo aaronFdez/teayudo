@@ -1,28 +1,28 @@
 <?php
 namespace app\models;
 /**
- * This is the model class for table "noticias".
+ * This is the model class for table "consultas".
  *
  * @property integer $id
  * @property string $titulo
  * @property string $cuerpo
  * @property string $enlace
  * @property string $publicado
- * @property integer $tipo_noticia
+ * @property integer $tipo_consulta
  * @property integer $id_usuario
  *
  * @property Comentarios[] $comentarios
- * @property TipoNoticia $tipoNoticia
+ * @property TipoConsulta $tipoConsulta
  * @property Usuarios $idUsuario
  */
-class Noticia extends \yii\db\ActiveRecord
+class Consulta extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'noticias';
+        return 'consultas';
     }
 
 
@@ -32,12 +32,12 @@ class Noticia extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['titulo', 'cuerpo', 'enlace', 'tipo_noticia','id_usuario' ], 'required'], // quito id_usuario
+            [['titulo', 'cuerpo',  'tipo_consulta','id_usuario' ], 'required'], // quito id_usuario
             [['cuerpo'], 'string'],
-            [['publicado'], 'safe'],
-            [['tipo_noticia','id_usuario'], 'integer'],// quito id_usuario
+            [['publicado','enlace',], 'safe'],
+            [['tipo_consulta','id_usuario'], 'integer'],// quito id_usuario
             [['titulo', 'enlace'], 'string', 'max' => 255],
-            [['tipo_noticia'], 'exist', 'skipOnError' => true, 'targetClass' => TipoNoticia::className(), 'targetAttribute' => ['tipo_noticia' => 'id']],
+            [['tipo_consulta'], 'exist', 'skipOnError' => true, 'targetClass' => TipoConsulta::className(), 'targetAttribute' => ['tipo_consulta' => 'id']],
             [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['id_usuario' => 'id']],
         ];
     }
@@ -52,46 +52,46 @@ class Noticia extends \yii\db\ActiveRecord
             'cuerpo' => 'Cuerpo',
             'enlace' => 'Enlace',
             'publicado' => 'Publicado',
-            'tipo_noticia' => 'Tipo Noticia',
+            'tipo_consulta' => 'Tipo Consulta',
             'id_usuario' => 'Id Usuario',
         ];
     }
 
     public function getTipo()
     {
-        return $this->tipo_noticia;
+        return $this->tipo_consulta;
 
     }
 
     /**
-     * Devuelve el número de comentarios que tiene una noticia concreta
-     * @param  int $id_noticia El id de la noticia
-     * @return int El número de comentarios que tiene la noticia pasada como parametro
+     * Devuelve el número de comentarios que tiene una consulta concreta
+     * @param  int $id_consulta El id de la consulta
+     * @return int El número de comentarios que tiene la consulta pasada como parametro
      */
-    // public function cuantosComentarios($id_noticia)
+    // public function cuantosComentarios($id_consulta)
     // {
-    //     return $comentarios = $this->getComentarios()->where(['id_noticia' => $id_noticia])->count();
+    //     return $comentarios = $this->getComentarios()->where(['id_consulta' => $id_consulta])->count();
     // }
     /**
      * @return \yii\db\ActiveQuery
      */
     // public function getComentarios()
     // {
-    //     return $this->hasMany(Comentario::className(), ['id_noticia' => 'id'])->inverseOf('idNoticia');
+    //     return $this->hasMany(Comentario::className(), ['id_consulta' => 'id'])->inverseOf('idConsulta');
     // }
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getTipoNoticia()
+    public function getTipoConsulta()
     {
-        return $this->hasOne(TipoNoticia::className(), ['id' => 'tipo_noticia'])->inverseOf('noticias');
+        return $this->hasOne(TipoConsulta::className(), ['id' => 'tipo_consulta'])->inverseOf('consultas');
     }
     /**
      * @return \yii\db\ActiveQuery
      */
     public function getUsuario()
     {
-        return $this->hasOne(Usuario::className(), ['id' => 'id_usuario'])->inverseOf('noticias');
+        return $this->hasOne(Usuario::className(), ['id' => 'id_usuario'])->inverseOf('consultas');
     }
 
     public function getNombre()

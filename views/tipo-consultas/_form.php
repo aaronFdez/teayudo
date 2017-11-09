@@ -2,11 +2,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-/* @var $model app\models\TipoNoticia */
+/* @var $model app\models\TipoConsulta */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="tipo-noticia-form">
+<div class="tipo-consulta-form">
 
     <?php $form = ActiveForm::begin(); ?>
 

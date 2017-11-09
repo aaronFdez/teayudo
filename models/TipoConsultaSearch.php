@@ -2,11 +2,11 @@
 namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\TipoNoticia;
+use app\models\TipoConsulta;
 /**
- * TipoNoticiaSearch represents the model behind the search form about `app\models\TipoNoticia`.
+ * TipoConsultaSearch represents the model behind the search form about `app\models\TipoConsulta`.
  */
-class TipoNoticiaSearch extends TipoNoticia
+class TipoConsultaSearch extends TipoConsulta
 {
     /**
      * @inheritdoc
@@ -35,7 +35,7 @@ class TipoNoticiaSearch extends TipoNoticia
      */
     public function search($params)
     {
-        $query = TipoNoticia::find();
+        $query = TipoConsulta::find();
         // add conditions that should always apply here
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

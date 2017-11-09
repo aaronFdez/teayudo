@@ -87,10 +87,10 @@ class UsuariosController extends Controller
     public function actionView($id)
     {
         $model = $this->findModel($id);
-        $dataProviderNoticias = $model->verNoticias();
+        $dataProviderConsultas = $model->verConsultas();
         return $this->render('view', [
             'model' => $model,
-            'dataProviderNoticias' => $dataProviderNoticias,
+            'dataProviderConsultas' => $dataProviderConsultas,
         ]);
     }
     /**

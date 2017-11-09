@@ -1,18 +1,18 @@
 <?php
 use yii\helpers\Html;
 /* @var $this yii\web\View */
-/* @var $model app\models\Noticia */
+/* @var $model app\models\Consulta */
 $this->title = $model->titulo;
-$this->params['breadcrumbs'][] = ['label' => 'Noticias', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Consultas', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 $formatter = \Yii::$app->formatter;
 $fecha = $formatter ->asDate( $model->publicado , 'long' );
 ?>
 <p class="notPub">
-    Noticia publicada el <?= $fecha ?> por el usuario  "<?= $model->usuario->nombre ?>"
+    Consulta publicada el <?= $fecha ?> por el usuario  "<?= $model->usuario->nombre ?>"
 </p>
-<div class="noticia-view" id="notVi">
+<div class="consulta-view" id="notVi">
 
 
     <div class="page-header">
@@ -27,7 +27,7 @@ $fecha = $formatter ->asDate( $model->publicado , 'long' );
             <!-- Html::a('Profile', ['user/view', 'id' => $id], ['class' => 'profile-link'])  -->
             <?= Html::a(
                 'Comentar',
-                ['../comentarios/create', 'id_noticia' => $model->id],
+                ['../comentarios/create', 'id_consulta' => $model->id],
                 ['class' => 'btn btn-success']
             ); ?>
         </p>

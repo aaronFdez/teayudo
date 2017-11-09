@@ -2,11 +2,11 @@
 namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Noticia;
+use app\models\Consulta;
 /**
- * NoticiaSearch represents the model behind the search form about `app\models\Noticia`.
+ * ConsultaSearch represents the model behind the search form about `app\models\Consulta`.
  */
-class NoticiaSearch extends Noticia
+class ConsultaSearch extends Consulta
 {
     /**
      * @inheritdoc
@@ -14,7 +14,7 @@ class NoticiaSearch extends Noticia
     public function rules()
     {
         return [
-            [['id','tipo_noticia','id_usuario' ], 'integer'],
+            [['id','tipo_consulta','id_usuario' ], 'integer'],
             [['titulo', 'cuerpo', 'enlace', 'publicado'], 'safe'],
         ];
     }
@@ -35,7 +35,7 @@ class NoticiaSearch extends Noticia
      */
     public function search($params)
     {
-        $query = Noticia::find();
+        $query = Consulta::find();
         // add conditions that should always apply here
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -50,7 +50,7 @@ class NoticiaSearch extends Noticia
         $query->andFilterWhere([
             'id' => $this->id,
             'publicado' => $this->publicado,
-            'tipo_noticia' => $this->tipo_noticia,
+            'tipo_consulta' => $this->tipo_consulta,
             'id_usuario' => $this->id_usuario,
         ]);
         $query->andFilterWhere(['like', 'titulo', $this->titulo])

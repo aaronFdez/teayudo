@@ -131,10 +131,10 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
     }
 
-    public function verNoticias()
+    public function verConsultas()
     {
         return new ActiveDataProvider([
-            'query' => $this->getNoticias(),
+            'query' => $this->getConsultas(),
             'pagination' => new Pagination([
                 'pageSize' => 5,
                 'pageParam' => 'pageDisp',
@@ -158,9 +158,9 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     }
 
 
-     public function getNoticias()
+     public function getConsultas()
      {
-         return $this->hasMany(Noticia::className(), ['id_usuario' => 'id'])->inverseOf('usuario');
+         return $this->hasMany(Consulta::className(), ['id_usuario' => 'id'])->inverseOf('usuario');
      }
 
      /**

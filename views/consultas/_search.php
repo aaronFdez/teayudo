@@ -2,11 +2,11 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
-/* @var $model app\models\NoticiaSearch */
+/* @var $model app\models\ConsultaSearch */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="noticia-search">
+<div class="consulta-search">
 
     <?php $form = ActiveForm::begin([
         'action' => ['index'],
@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'publicado') ?>
 
-    <?php  echo $form->field($model, 'tipo_noticia') ?>
+    <?php  echo $form->field($model, 'tipo_consulta') ?>
 
     <?php  echo $form->field($model, 'id_usuario') ?>
 

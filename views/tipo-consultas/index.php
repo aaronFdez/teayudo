@@ -2,18 +2,18 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 /* @var $this yii\web\View */
-/* @var $searchModel app\models\TipoNoticiaSearch */
+/* @var $searchModel app\models\TipoConsultaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-$this->title = 'Tipo Noticias';
+$this->title = 'Tipo Consultas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="tipo-noticia-index">
+<div class="tipo-consulta-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Tipo Noticia', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Tipo Consulta', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
