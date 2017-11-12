@@ -25,23 +25,30 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+    <div class="media">
+        <div class="media-left">
+             <?= Html::img($model->rutaImagen, ['title' => 'Imagen de ' . $model->nombre  ,
+              'width' => 'auto', 'height'=>'140px']); ?>
+         </div>
+            <div class="media-body">
+                <?= DetailView::widget([
+                    'model' => $model,
+                    'attributes' => [
+                        'nombre',
+                        [
+                            'attribute' => 'tipo',
+                            'value' => $model->tipoUsuario,
+                        ],
+                        [
+                            'attribute' => 'miniatura',
+                            'value' => $model->rutaImagen,
+                            'format' => 'image',
+                        ],
+                    ],
+                ]) ?>
+            </div>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'nombre',
-            [
-                'attribute' => 'tipo',
-                'value' => $model->tipoUsuario,
-            ],
-            [
-                'attribute' => 'foto',
-                'value' => $model->rutaImagen,
-                'format' => 'image',
-            ],
-        ],
-    ]) ?>
-
+                 </div>
 <h2>Consultas publicadas</h2>
 
     <?php Pjax::begin() ?>
@@ -58,6 +65,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     );
                 },
                 'format' => 'html',
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'controller' => 'consultas'
             ],
         ],
     ]) ?>

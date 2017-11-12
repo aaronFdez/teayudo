@@ -22,6 +22,14 @@ $fecha = $formatter ->asDate( $model->publicado , 'long' );
     <p id="cuerpo"><?= $model->cuerpo ?></p>
     <!-- <h3>Comentarios (?= $numComentarios; ?>)</h3><br><br> -->
 </div>
+<?php foreach ($comentarios as $comentario) {?>
+    <div class="bg-info">
+        <!-- <p>Autor del comentario:= $comentario->usuario->nombre ?></p> -->
+        <p><?= $comentario->comentario ?></p>
+        <!-- <p>Fecha comentario: $comentario->fecha ?></p> -->
+    </div>
+    <?php } ?>
+</div>
 <div class="botonComentar">
         <p>
             <!-- Html::a('Profile', ['user/view', 'id' => $id], ['class' => 'profile-link'])  -->
@@ -32,13 +40,5 @@ $fecha = $formatter ->asDate( $model->publicado , 'long' );
             ); ?>
         </p>
 </div>
-    <!-- php foreach ($comentarios as $comentario) {?> -->
-        <!-- <div class="bg-info">
-            <p>Autor del comentario:?= $comentario->usuario->nombre ?></p>
-            <p>?= $comentario->comentario ?></p>
-            <p>Fecha comentario:?= $comentario->fecha ?></p>
-        </div>
-        ?php } ?>
-    </div>?=
-    // Yii::$app->controller->renderPartial('../comentarios/_form', ['model' => $comentarioNuevo]);
-?>-->
+<!-- //$this->render('../comentarios/_form', ['model' => $comentarioNuevo]) -->
+<!-- // Yii::$app->controller->renderPartial('../comentarios/_form', ['model' => $comentarioNuevo]); -->

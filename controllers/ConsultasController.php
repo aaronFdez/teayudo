@@ -2,6 +2,7 @@
 namespace app\controllers;
 use Yii;
 use app\models\Consulta;
+use app\models\Comentario;
 use app\models\TipoConsulta;
 use app\models\Usuario;
 use app\models\ConsultaSearch;
@@ -30,7 +31,7 @@ class ConsultasController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['create', 'update', 'delete', 'index'],
+                'only' => ['create', 'update', 'delete'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -72,22 +73,22 @@ class ConsultasController extends Controller
      */
     public function actionView($id)
     {
-        // $comentarioNuevo = new Comentario(['id_consulta' => $id]);
-        // if ($comentarioNuevo->load(Yii::$app->request->post())) {
-        //     $comentarioNuevo->id_usuario = Yii::$app->user->id;
-        //     $comentarioNuevo->id_consulta = $id;
-        //     if ($comentarioNuevo->save()) {
-        //         return $this->redirect(['../consultas/view', 'id' => $id]);
-        //     }
-        // }
-        // $comentarios = Comentario::findAll(['id_consulta' => $id]);
-        // $numComentarios = count($comentarios);
+        $comentarioNuevo = new Comentario(['id_consulta' => $id]);
+        if ($comentarioNuevo->load(Yii::$app->request->post())) {
+            $comentarioNuevo->id_usuario = Yii::$app->user->id;
+            $comentarioNuevo->id_consulta = $id;
+            if ($comentarioNuevo->save()) {
+                return $this->redirect(['../consultas/view', 'id' => $id]);
+            }
+        }
+        $comentarios = Comentario::findAll(['id_consulta' => $id]);
+        $numComentarios = count($comentarios);
 
         return $this->render('view', [
             'model' => $this->findModel($id),
-            // 'comentarios' => $comentarios,
-            // 'numComentarios' => $numComentarios,
-            // 'comentarioNuevo' => $comentarioNuevo,
+            'comentarios' => $comentarios,
+            'numComentarios' => $numComentarios,
+            'comentarioNuevo' => $comentarioNuevo,
         ]);
     }
     /**

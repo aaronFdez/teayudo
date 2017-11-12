@@ -9,22 +9,13 @@ create table usuarios (
                                                  constraint ck_tipo_usuario check (tipo in ('U', 'A')),
    zona_horaria   varchar(255)  default 'Europe/Madrid',
    token_val        varchar(32)    constraint uq_usuarios_token_val unique
-   -- consulta_id     bigint              not null constraint fk_usuario_consultas
-   --                                                references consultas (id)
-   --                                                on delete no action on update cascade
+   consulta_id     bigint              not null constraint fk_usuario_consultas
+                                                  references consultas (id)
+                                                  on delete no action on update cascade
 );
 insert into usuarios (nombre, password, tipo)
 values ('admin', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A'),
 ('paco','$2y$13$UGOQzx4iucABdBL2swT8VOOoSjSU6a7hA6qeHIC5/zcYM6AkH5nm.','U');
-
--- drop table if exists tipo_consulta cascade;
---
--- create table tipo_consulta (
---     id           bigserial      constraint pk_tipo_consultas primary key,
---     tipo         varchar(255)   not null
--- );
--- insert into tipo_consulta ( tipo)
---     values ('Hogar'),('Legal'), ('Tecnología'),('Videojuegos'),('Otros');
 
 drop table if exists tipo_consulta cascade;
 
@@ -52,20 +43,20 @@ create table consultas (
                                 on update cascade
 );
 
--- drop table if exists comentarios cascade;
---
--- create table comentarios (
---     id                      bigserial         constraint pk_comentarios primary key,
---     id_usuario        bigint              constraint fk_comentario_usuarios
---                                                     references usuarios(id)
---                                                     on delete no action on update cascade,
---     votos                 numeric(6)     default 0,
---     comentario       varchar(500)  not null,
---     publicado         timestamptz   default current_timestamp,
---     id_consulta       bigint             not null constraint fk_comentarios_consultas
---                                                     references consultas(id) on delete no action
---                                                     on update cascade
--- );
---
--- create index idx_comentarios_votos on comentarios (votos);
--- create index idx_comentarios_publicado on comentarios (publicado);
+drop table if exists comentarios cascade;
+
+create table comentarios (
+    id                      bigserial         constraint pk_comentarios primary key,
+    id_usuario        bigint              constraint fk_comentario_usuarios
+                                                    references usuarios(id)
+                                                    on delete no action on update cascade,
+    votos                 numeric(6)     default 0,
+    comentario       varchar(500)  not null,
+    publicado         timestamptz   default current_timestamp,
+    id_consulta       bigint             not null constraint fk_comentarios_consultas
+                                                    references consultas(id) on delete no action
+                                                    on update cascade
+);
+
+create index idx_comentarios_votos on comentarios (votos);
+create index idx_comentarios_publicado on comentarios (publicado);

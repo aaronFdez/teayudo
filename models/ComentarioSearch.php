@@ -2,11 +2,11 @@
 namespace app\models;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Consulta;
+use app\models\Comentario;
 /**
- * ConsultaSearch represents the model behind the search form about `app\models\Consulta`.
+ * ComentarioSearch represents the model behind the search form about `app\models\Comentario`.
  */
-class ConsultaSearch extends Consulta
+class ComentarioSearch extends Comentario
 {
     /**
      * @inheritdoc
@@ -14,8 +14,8 @@ class ConsultaSearch extends Consulta
     public function rules()
     {
         return [
-            [['id','tipo_consulta','id_usuario' ], 'integer'],
-            [['titulo', 'cuerpo', 'enlace', 'publicado'], 'safe'],
+            [['id', 'id_usuario', 'id_consulta'], 'integer'],
+            [['comentario', 'fecha'], 'safe'],
         ];
     }
     /**
@@ -35,7 +35,7 @@ class ConsultaSearch extends Consulta
      */
     public function search($params)
     {
-        $query = Consulta::find();
+        $query = Comentario::find();
         // add conditions that should always apply here
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
@@ -49,13 +49,11 @@ class ConsultaSearch extends Consulta
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'publicado' => $this->publicado,
-            'tipo_consulta' => $this->tipo_consulta,
+            'fecha' => $this->fecha,
             'id_usuario' => $this->id_usuario,
+            'id_consulta' => $this->id_consulta,
         ]);
-        $query->andFilterWhere(['ilike', 'titulo', $this->titulo])
-            ->andFilterWhere(['like', 'cuerpo', $this->cuerpo])
-            ->andFilterWhere(['like', 'enlace', $this->enlace]);
+        $query->andFilterWhere(['like', 'comentario', $this->comentario]);
         return $dataProvider;
     }
 }

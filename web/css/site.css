@@ -152,3 +152,9 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+#w0 > div.form-group.field-comentario-comentario.required textarea {
+    width: 50% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
