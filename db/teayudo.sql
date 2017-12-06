@@ -9,9 +9,9 @@ create table usuarios (
                                                  constraint ck_tipo_usuario check (tipo in ('U', 'A')),
    zona_horaria   varchar(255)  default 'Europe/Madrid',
    token_val        varchar(32)    constraint uq_usuarios_token_val unique
-   -- consulta_id     bigint              not null constraint fk_usuario_consultas
-   --                                                references consultas (id)
-   --                                                on delete no action on update cascade
+   consulta_id     bigint              not null constraint fk_usuario_consultas
+                                                  references consultas (id)
+                                                  on delete no action on update cascade
 );
 insert into usuarios (nombre, password, tipo)
 values ('admin', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A'),
