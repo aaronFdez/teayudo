@@ -62,4 +62,9 @@ class Comentario extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Usuario::className(), ['id' => 'id_usuario'])->inverseOf('comentarios');
     }
+
+    public function getFecha()
+    {
+        return $this->$fecha;
+    }
 }

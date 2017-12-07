@@ -163,6 +163,10 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
          return $this->hasMany(Consulta::className(), ['id_usuario' => 'id'])->inverseOf('usuario');
      }
 
+     public function getComentarios()
+     {
+         return $this->hasMany(Comentario::className(), ['id_usuario' => 'id'])->inverseOf('usuario');
+     }
      /**
       * Valida la contraseña
       *
@@ -174,10 +178,6 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return Yii::$app->security->validatePassword($password, $this->password);
     }
 
-    // public function getConsultas()
-    // {
-    //     return $this->hasMany(Consulta::className(), ['consulta_id' => 'id'])->inverseOf('usuario');
-    // }
     public function esAdmin()
         {
             return $this->nombre === 'admin';
