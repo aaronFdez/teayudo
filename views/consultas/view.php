@@ -39,12 +39,13 @@ $fechaComentario = $formatter ->asDate( $model->publicado , 'long' );
         <br/>
     </br/>
     </div>
-    <div class="col-md-offset-1 col-md-3" >
+    <div class="col-md-3" >
+        <br />
         <p class="text-center">
             Publicado por <?= $comentario->usuario->nombre ?>
         </br/>
         <?= Html::img($comentario->usuario->rutaImagen, ['title' => 'Imagen de ' . $comentario->usuario->nombre  ,
-         'width' => '125px', 'height'=>'80px']); ?>
+         'max-width' => '125px', ]); ?>
         </p>
         <img src="" alt="">
     </div>

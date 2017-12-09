@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\components\UsuariosHelper;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ConsultaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -40,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => 'html',
                 'label' => 'Tipo consulta',
+                'filter' => UsuariosHelper::tipoConsulta(),
             ],
             'publicado:datetime',
             // 'tipo_consulta',

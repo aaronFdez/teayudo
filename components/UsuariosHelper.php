@@ -33,6 +33,18 @@ class UsuariosHelper extends \yii\base\Component
         return $key === null ? $lista : $lista[$key];
     }
 
+    public static function tipoConsulta($key = null)
+    {
+        $lista = [
+            '1' => 'Hogar',
+            '2' => 'Legal',
+            '3' => 'Tecnología',
+            '4' => 'Videojuegos',
+            '5' => 'Otros',
+        ];
+        return $key === null ? $lista : $lista[$key];
+    }
+
     public static function menu()
     {
         return static::isGuest() ? (
