@@ -36,6 +36,7 @@ class UsuariosHelper extends \yii\base\Component
     public static function tipoConsulta($key = null)
     {
         $lista = [
+            '' =>'Todas',
             '1' => 'Hogar',
             '2' => 'Legal',
             '3' => 'Tecnología',

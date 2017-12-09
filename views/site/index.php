@@ -35,15 +35,15 @@ $this->title = 'My Yii Application';
 
     <div class="container">
         <ul class="nav nav-pills nav-justified">
-            <li><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true">
+            <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=1"><span class="glyphicon glyphicon-home" aria-hidden="true">
             </span> Hogar</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-education" aria-hidden="true">
+            <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=2"><span class="glyphicon glyphicon-education" aria-hidden="true">
             </span> Abogados</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-phone" aria-hidden="true">
+            <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=3"><span class="glyphicon glyphicon-phone" aria-hidden="true">
             </span>Tecnología</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-knight" aria-hidden="true">
+            <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=4"><span class="glyphicon glyphicon-knight" aria-hidden="true">
             </span> VideoJuegos</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true">
+            <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=5"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true">
             </span> Otros</a></li>
         </ul>
 
@@ -62,35 +62,54 @@ $this->title = 'My Yii Application';
 
         <div class="row">
             <div class="col-lg-4">
-                <h2>Temas de ayuda</h2>
-
-                <p>Aquí hay una relación de los principales temas donde otros usuarios han pedido ayuda o están siendo aclaradas dudas sobre todo tipo
-                de temas profesionales como albañilería, informática, fontanería, abogacía, ...</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">ir a temas &raquo;</a></p>
+                <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=1">
+                    <?= Html::img('@web/fotos/hogar.jpg', ['alt'=>'hogar']);?>
+                </a>
+                <h2>Ayuda para el hogar</h2>
+                <p>Si necesitas ayuda con cualquier tema relacionado con el hogar nuestros usuarios expertos te ayudarán.
+                Por otra parte si eres un "manitas" no dudes en ayudar a quienes los necesitan aportando tu sabiduría</p>
             </div>
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=2">
+                <?= Html::img('@web/fotos/ley.jpg', ['alt'=>'leyes']);?>
+                </a>
+                <h2>Temas legales</h2>
+                <p>Sección para nuestros usuarios que tengan dudas sobre temas legales o burocráticos.
+                    Los usuarios que tengan conocimientos sobre el leyes aportarán ideas y soluciones a otros usuarios necesitados
+                    de sus aportaciones.
+                </p>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
             </div>
             <div class="col-lg-4">
-                <h2>Ahora</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=3">
+                <?= Html::img('@web/fotos/tecno.jpg', ['alt'=>'tecnologia']);?>
+            </a>
+                <h2>Espacio tecnológico</h2>
+                <p>Aquí nuestros usuarios con nivel avanzado en tecnologías pondrán a prueba sus conocimientos sobre éstas
+                ayudando a otros que consulten sus dudas</p>
             </div>
         </div>
+        <div class="" style="margin-bottom:70px">
+        </div>
+        <div class="row">
+            <div class="col-lg-offset-1 col-lg-4">
+                <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=4">
+                <?= Html::img('@web/fotos/juego.jpg', ['alt'=>'videojuegos']);?>
+            </a>
+                <h2>VideoJuegos</h2>
+                <p>¿Estás atascado?. Crea una consulta y no pierdas más tiempo, nuestros usuarios gamers
+                te ayudarán con sus conociemientos. Si puedes ayudar a un usuario atascado coméntale su consulta y
+            alégrale el día</p>
+            </div>
 
+            <div class="col-lg-offset-1 col-lg-4">
+                <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=5">
+                <?= Html::img('@web/fotos/otros.jpg', ['alt'=>'otros']);?>
+            </a>
+                <h2>Otros</h2>
+                <p>En esta sección abarcamos el resto del mundo como consultas sobre mascotas, coches, mecánica, etc...</p>
+            </div>
+        </div>
     </div>
 </div>
 </body>

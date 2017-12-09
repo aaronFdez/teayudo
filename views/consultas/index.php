@@ -11,8 +11,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="consulta-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
         <?= Html::a('Crear consulta', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -34,30 +32,21 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute' => 'tipo_consulta',
                 'value' => function ($model, $widget) {
-                    return Html::a(
-                        Html::encode($model->tipoConsulta->tipo),
-                        ['tipo-consultas/view', 'id' => $model->tipo_consulta]
-                    );
+                    return Html::encode($model->tipoConsulta->tipo);
                 },
                 'format' => 'html',
                 'label' => 'Tipo consulta',
                 'filter' => UsuariosHelper::tipoConsulta(),
             ],
             'publicado:datetime',
-            // 'tipo_consulta',
-            // ,
             [
                 'attribute' => 'id_usuario',
                 'value' => function ($model, $widget) {
-                    return Html::a(
-                        Html::encode($model->usuario->nombre),
-                        ['usuarios/view', 'id' => $model->usuario->id]
-                    );
+                    return Html::encode($model->usuario->nombre);
                 },
                 'format' => 'html',
                 'label' => 'Nombre del autor',
             ],
-            // ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 </div>

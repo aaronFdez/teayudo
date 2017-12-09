@@ -201,3 +201,8 @@ a.desc:after {
 	border-width: 47px;
 	margin-top: -47px;
 }
+
+body > div.wrap > div > div:nth-child(5) > div.body-content > div > div > a > img {
+    max-width: 350px;
+    border:1px solid black;
+}
