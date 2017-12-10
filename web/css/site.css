@@ -206,3 +206,8 @@ body > div.wrap > div > div:nth-child(5) > div.body-content > div > div > a > im
     max-width: 350px;
     border:1px solid black;
 }
+#fotoComentario {
+    max-height: 100px;
+    margin-top: 10px;
+    border:2px solid #88b7d5;
+}
