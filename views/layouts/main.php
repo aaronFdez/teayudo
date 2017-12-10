@@ -62,6 +62,7 @@ AppAsset::register($this);
                 ) : (
                     ['label' => 'Mi perfil', 'url' => ['/usuarios/view', 'id' => Yii::$app->user->identity->id],]
             ),
+            ['label' => 'Contacto', 'url' => ['/site/contact']],
             UsuariosHelper::isAdmin() ? (
                 ['label' => 'Usuarios', 'url' => ['usuarios/index']]
             ) : '',

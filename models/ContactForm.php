@@ -38,7 +38,10 @@ class ContactForm extends Model
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'verifyCode' => 'Introduce el código de verificación',
+            'name' => 'Nombre',
+            'subject' => 'Motivo',
+            'body' => 'Texto',
         ];
     }
 
@@ -54,7 +57,7 @@ class ContactForm extends Model
                 ->setTo($email)
                 ->setFrom([$this->email => $this->name])
                 ->setSubject($this->subject)
-                ->setTextBody($this->body)
+                ->setTextBody($this->body . ' escrito desde el correo ' . $this->email)
                 ->send();
 
             return true;
