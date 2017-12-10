@@ -13,6 +13,72 @@ $this->title = 'My Yii Application';
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style media="screen">
+    @-webkit-keyframes swing
+    {
+    15%
+    {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+    }
+    30%
+    {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+    }
+    50%
+    {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+    }
+    65%
+    {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+    }
+    80%
+    {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+    }
+    100%
+    {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+    }
+    @keyframes swing
+    {
+    15%
+    {
+    -webkit-transform: translateX(5px);
+    transform: translateX(5px);
+    }
+    30%
+    {
+    -webkit-transform: translateX(-5px);
+    transform: translateX(-5px);
+    }
+    50%
+    {
+    -webkit-transform: translateX(3px);
+    transform: translateX(3px);
+    }
+    65%
+    {
+    -webkit-transform: translateX(-3px);
+    transform: translateX(-3px);
+    }
+    80%
+    {
+    -webkit-transform: translateX(2px);
+    transform: translateX(2px);
+    }
+    100%
+    {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+    }
+}
         .my-navbar {
             background-color: #fc6000;
             color: white;
@@ -25,6 +91,12 @@ $this->title = 'My Yii Application';
         #w0 {
             background-color: #0c406f;
             color:white;
+        }
+        .swing:hover {
+            -webkit-animation: swing 1s ease;
+            animation: swing 1s ease;
+            -webkit-animation-iteration-count: 1;
+            animation-iteration-count: 1;
         }
     </style>
 </head>
@@ -61,7 +133,7 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <div class="row">
-            <div class="col-lg-4">
+            <div class="col-lg-4 swing">
                 <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=1">
                     <?= Html::img('@web/fotos/hogar.jpg', ['alt'=>'hogar']);?>
                 </a>
@@ -69,7 +141,7 @@ $this->title = 'My Yii Application';
                 <p>Si necesitas ayuda con cualquier tema relacionado con el hogar nuestros usuarios expertos te ayudarán.
                 Por otra parte si eres un "manitas" no dudes en ayudar a quienes los necesitan aportando tu sabiduría</p>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 swing">
                 <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=2">
                 <?= Html::img('@web/fotos/ley.jpg', ['alt'=>'leyes']);?>
                 </a>
@@ -80,7 +152,7 @@ $this->title = 'My Yii Application';
                 </p>
 
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-4 swing">
                 <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=3">
                 <?= Html::img('@web/fotos/tecno.jpg', ['alt'=>'tecnologia']);?>
             </a>
@@ -92,7 +164,7 @@ $this->title = 'My Yii Application';
         <div class="" style="margin-bottom:70px">
         </div>
         <div class="row">
-            <div class="col-lg-offset-1 col-lg-4">
+            <div class="col-lg-offset-1 col-lg-4 swing">
                 <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=4">
                 <?= Html::img('@web/fotos/juego.jpg', ['alt'=>'videojuegos']);?>
             </a>
@@ -102,7 +174,7 @@ $this->title = 'My Yii Application';
             alégrale el día</p>
             </div>
 
-            <div class="col-lg-offset-1 col-lg-4">
+            <div class="col-lg-offset-1 col-lg-4 swing">
                 <a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=5">
                 <?= Html::img('@web/fotos/otros.jpg', ['alt'=>'otros']);?>
             </a>

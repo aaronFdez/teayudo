@@ -51,9 +51,9 @@ class UsuarioSearch extends Usuario
         $query->andFilterWhere([
             'id' => $this->id,
         ]);
-        $query->andFilterWhere(['like', 'nombre', $this->nombre])
-            ->andFilterWhere(['like', 'password', $this->password])
-            ->andFilterWhere(['like', 'tipo', $this->tipo]);
+        $query->andFilterWhere(['ilike', 'nombre', $this->nombre])
+            ->andFilterWhere(['ilike', 'password', $this->password])
+            ->andFilterWhere(['ilike', 'tipo', $this->tipo]);
         return $dataProvider;
     }
 }

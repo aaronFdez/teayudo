@@ -14,6 +14,7 @@ namespace app\models;
  */
 class Comentario extends \yii\db\ActiveRecord
 {
+    public $user;
     /**
      * @inheritdoc
      */
@@ -29,7 +30,7 @@ class Comentario extends \yii\db\ActiveRecord
         return [
             [['comentario', 'id_usuario', 'id_consulta'], 'required'],
             [['comentario'], 'string'],
-            [['fecha'], 'safe'],
+            [['fecha','user'], 'safe'],
             [['id_usuario', 'id_consulta'], 'integer'],
             [['id_consulta'], 'exist', 'skipOnError' => true, 'targetClass' => Consulta::className(), 'targetAttribute' => ['id_consulta' => 'id']],
             [['id_usuario'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['id_usuario' => 'id']],
@@ -46,6 +47,7 @@ class Comentario extends \yii\db\ActiveRecord
             'fecha' => 'Fecha',
             'id_usuario' => 'Id Usuario',
             'id_consulta' => 'Id consulta',
+            'user' => 'Usuario',
         ];
     }
     /**
@@ -61,6 +63,12 @@ class Comentario extends \yii\db\ActiveRecord
     public function getUsuario()
     {
         return $this->hasOne(Usuario::className(), ['id' => 'id_usuario'])->inverseOf('comentarios');
+    }
+
+    public function getUser()
+    {
+        $this->user = $this->usuario->nombre;
+        return $this->user;
     }
 
     public function getFecha()

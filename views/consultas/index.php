@@ -38,7 +38,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Tipo consulta',
                 'filter' => UsuariosHelper::tipoConsulta(),
             ],
-            'publicado:datetime',
+            [
+                'attribute' => 'publicado',
+                'label' => 'Fecha de publicación',
+                'format' => ['datetime', 'php:H:i  d/m/Y'] ,
+                'filter' =>false,
+            ],
             [
                 'attribute' => 'id_usuario',
                 'value' => function ($model, $widget) {
@@ -46,6 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => 'html',
                 'label' => 'Nombre del autor',
+                'filter' =>false,
             ],
         ],
     ]); ?>
