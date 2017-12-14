@@ -62,23 +62,6 @@ class Consulta extends \yii\db\ActiveRecord
         return $this->tipo_consulta;
 
     }
-
-    /**
-     * Devuelve el número de comentarios que tiene una consulta concreta
-     * @param  int $id_consulta El id de la consulta
-     * @return int El número de comentarios que tiene la consulta pasada como parametro
-     */
-    // public function cuantosComentarios($id_consulta)
-    // {
-    //     return $comentarios = $this->getComentarios()->where(['id_consulta' => $id_consulta])->count();
-    // }
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    // public function getComentarios()
-    // {
-    //     return $this->hasMany(Comentario::className(), ['id_consulta' => 'id'])->inverseOf('idConsulta');
-    // }
     /**
      * @return \yii\db\ActiveQuery
      */

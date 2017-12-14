@@ -224,3 +224,8 @@ body > div.wrap > div > div:nth-child(5) > div.body-content > div > div > a > im
 #voto > a {
     margin-top:50%;
 }
+
+#foto > img {
+    width: 70px !important;
+    margin-left: 30%;
+}

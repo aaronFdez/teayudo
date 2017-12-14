@@ -12,11 +12,20 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1 class="text-center"><?= Html::encode($this->title) ?></h1>
 
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
+            [
+                'class' => 'yii\grid\SerialColumn',
+                'header' => 'Posición',
+            ],
+            [
+                'label' => 'Imagen del usuario',
+                'format' => 'image',
+                'value' => 'rutaImagen',
+                'contentOptions'=>['id'=>'foto']
+            ],
             'nombre',
             'votos',
         ],

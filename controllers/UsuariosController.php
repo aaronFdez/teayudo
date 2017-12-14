@@ -173,10 +173,9 @@ class UsuariosController extends Controller
             $usuarios =(new \yii\db\Query())
                 ->select('*')
                 ->from('usuarios')
-                ->orderBy('votos,desc')
                 ->limit(3);
 
-            
+
             $searchModel = new UsuarioSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
             return $this->render('ranking', [
