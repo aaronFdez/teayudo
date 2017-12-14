@@ -47,13 +47,20 @@ class UsuarioSearch extends Usuario
             // $query->where('0=1');
             return $dataProvider;
         }
+
+        $dataProvider->sort->attributes['votos'] = [
+            'asc' => ['votos' => SORT_ASC],
+            'desc' => ['votos' => SORT_DESC],
+        ];
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
         ]);
         $query->andFilterWhere(['ilike', 'nombre', $this->nombre])
             ->andFilterWhere(['ilike', 'password', $this->password])
-            ->andFilterWhere(['ilike', 'tipo', $this->tipo]);
+            ->andFilterWhere(['ilike', 'votos', $this->votos])
+            ->andFilterWhere(['ilike', 'tipo', $this->tipo])
+            ->orderBy(['votos'=>SORT_DESC]);
         return $dataProvider;
     }
 }

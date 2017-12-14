@@ -57,15 +57,15 @@ create index idx_comentarios_votos on comentarios (votos);
 create index idx_comentarios_publicado on comentarios (publicado);
 
 
-insert into usuarios (nombre, password, tipo)
-values ('admin', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A'),
-('paco','$2y$13$UGOQzx4iucABdBL2swT8VOOoSjSU6a7hA6qeHIC5/zcYM6AkH5nm.','U'),
-('carmen','$2y$13$GHhbFK4GRwhaTGrNClZjdecm66RZ5k20PNjZOpOyrC9bmbmr3Kai.','U'),
-('selene','$2y$13$Ca9LDGZX36j7u20pRgGS9eBlsR.yYCVpNSaTZn4GjwuEg/KyltqwG','U'),
-('admin2', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A'),
-('paco2','$2y$13$UGOQzx4iucABdBL2swT8VOOoSjSU6a7hA6qeHIC5/zcYM6AkH5nm.','U'),
-('carmen2','$2y$13$GHhbFK4GRwhaTGrNClZjdecm66RZ5k20PNjZOpOyrC9bmbmr3Kai.','U'),
-('selene2','$2y$13$Ca9LDGZX36j7u20pRgGS9eBlsR.yYCVpNSaTZn4GjwuEg/KyltqwG','U');
+insert into usuarios (nombre, password, tipo,votos)
+values ('admin', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A',2),
+('paco','$2y$13$UGOQzx4iucABdBL2swT8VOOoSjSU6a7hA6qeHIC5/zcYM6AkH5nm.','U',15),
+('carmen','$2y$13$GHhbFK4GRwhaTGrNClZjdecm66RZ5k20PNjZOpOyrC9bmbmr3Kai.','U',9),
+('selene','$2y$13$Ca9LDGZX36j7u20pRgGS9eBlsR.yYCVpNSaTZn4GjwuEg/KyltqwG','U',8),
+('admin2', '$2y$13$3t.QgESLRu98NTHv2GSTfefE6rdPssSGq0eKofwl4f3QNIC.V4Bmq', 'A',2),
+('paco2','$2y$13$UGOQzx4iucABdBL2swT8VOOoSjSU6a7hA6qeHIC5/zcYM6AkH5nm.','U',4),
+('carmen2','$2y$13$GHhbFK4GRwhaTGrNClZjdecm66RZ5k20PNjZOpOyrC9bmbmr3Kai.','U',6),
+('selene2','$2y$13$Ca9LDGZX36j7u20pRgGS9eBlsR.yYCVpNSaTZn4GjwuEg/KyltqwG','U',7);
 
 insert into tipo_consulta ( tipo)
 values ('Hogar'),('Legal'), ('Tecnología'),('Videojuegos'),('Otros');

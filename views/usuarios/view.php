@@ -27,8 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <div class="media">
         <div class="media-left">
-             <?= Html::img($model->rutaImagen, ['title' => 'Imagen de ' . $model->nombre  ,
-              'width' => 'auto', 'height'=>'140px']); ?>
+            <?= Html::img('@web/fotos/logotipo.png', ['alt'=>'Logo','width' => 'auto', 'height'=>'140px',]);?>
          </div>
             <div class="media-body">
                 <?= DetailView::widget([
@@ -38,6 +37,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         [
                             'attribute' => 'tipo',
                             'value' => $model->tipoUsuario,
+                        ],
+                        [
+                            'attribute' => 'votos',
+                            'value' => $model->votos
                         ],
                         [
                             'attribute' => 'miniatura',

@@ -1,13 +1,14 @@
 <?php
 namespace app\models;
+
 use Yii;
 use app\components\UsuariosHelper;
 use yii\helpers\Url;
 use yii\web\UploadedFile;
 use yii\imagine\Image;
-use yii\data\Sort;
 use yii\data\Pagination;
 use yii\data\ActiveDataProvider;
+$sel = "SELECT * FROM usuarios ORDER BY votos DESC LIMIT 3";
 /**
  * This is the model class for table "usuarios".
  *
@@ -42,6 +43,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             [['password'], 'required', 'on' => [self::SCENARIO_DEFAULT]],
             [['nombre'], 'string', 'max' => 255],
             [['password'], 'string', 'max' => 60],
+            [['votos'],'safe'],
             [['nombre'], 'unique'],
             [
                 ['passwordForm', 'passwordConfirmForm'],
@@ -90,6 +92,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'nombre' => 'Nombre',
             'password' => 'Contraseña',
             'tipo' => 'Tipo',
+            'votos'=>'Votos',
             'passwordForm' => 'Contraseña',
             'passwordConfirmForm' => 'Confirmar contraseña',
         ];
@@ -97,6 +100,12 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function getIsAdmin()
     {
         return $this->tipo === 'A';
+    }
+
+    public function votar()
+    {
+         $this->votos = $this->votos + 1;
+         var_dump($this->votos);
     }
     public function getTipoUsuario()
     {
@@ -120,6 +129,11 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return self::findOne(['nombre' => $nombre]);
     }
 
+    public function getVotos()
+    {
+        return $this->votos;
+    }
+
     public function getId()
     {
         return $this->id;
@@ -139,21 +153,6 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
                 'pageSize' => 5,
                 'pageParam' => 'pageDisp',
             ]),
-            // 'sort' => new Sort([
-            //     'sortParam' => 'sortDisp',
-            //     'attributes' => [
-            //         'nombre' => [
-            //             'asc' => [
-            //                 'marca_disp' => SORT_ASC,
-            //                 'modelo_disp' => SORT_ASC,
-            //             ],
-            //             'desc' => [
-            //                 'marca_disp' => SORT_DESC,
-            //                 'modelo_disp' => SORT_DESC,
-            //             ],
-            //         ],
-            //     ],
-            // ])
         ]);
     }
 
@@ -206,7 +205,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         if ($this->foto !== null) {
             $ruta = "fotos/{$this->id}.jpg";
             $this->foto->saveAs($ruta);
-            Image::thumbnail($ruta, 100, null)->save($ruta, ['quality' => 50]);
+            Image::thumbnail($ruta, 100, null)->save($ruta, ['quality' => 90]);
         }
     }
     public function getRutaImagen()
@@ -215,7 +214,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         if (file_exists($ruta)) {
             return Url::to("/$ruta");
         } else {
-            return Url::to('/fotos/default.jpg');
+            return Url::to('/fotos/2.jpg');
         }
     }
 }

@@ -27,8 +27,13 @@ class UsuariosController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['create', 'activar'],
+                        'actions' => ['create', 'activar',],
                         'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['votar','ranking'],
+                        'allow' => true,
+                        'roles' => ['?','@'],
                     ],
                     [
                         'allow' => true,
@@ -39,7 +44,7 @@ class UsuariosController extends Controller
                     ],
                     [
                         'allow' => true,
-                        'actions' => ['update', 'view'],
+                        'actions' => ['update', 'view',],
                         'roles' => ['@'],
                         'matchCallback' => function ($rule, $action) {
                             $id = Yii::$app->request->get('id');
@@ -151,6 +156,36 @@ class UsuariosController extends Controller
         $this->findModel($id)->delete();
         return $this->redirect(['index']);
     }
+
+    public function actionVotar($id, $id_consulta)
+    {
+        $model = $this->findModel($id);
+        $model->votar();
+        if ($model->save()) {
+            return $this->redirect(['../consultas/view', 'id' => $id_consulta]);
+        }
+    }
+
+
+
+        public function actionRanking()
+        {
+            $usuarios =(new \yii\db\Query())
+                ->select('*')
+                ->from('usuarios')
+                ->orderBy('votos,desc')
+                ->limit(3);
+
+            
+            $searchModel = new UsuarioSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+            return $this->render('ranking', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+                'usuarios' => $usuarios,
+            ]);
+
+        }
     /**
      * Finds the Usuario model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

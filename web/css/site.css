@@ -211,3 +211,16 @@ body > div.wrap > div > div:nth-child(5) > div.body-content > div > div > a > im
     margin-top: 10px;
     border:2px solid #88b7d5;
 }
+
+
+.pagination > .active > a {
+    background-color: #0c406f !important;
+    color: white !important;
+}
+
+#w0 > tbody > tr:nth-child(4) > td > img {
+    width: 150px !important;
+}
+#voto > a {
+    margin-top:50%;
+}

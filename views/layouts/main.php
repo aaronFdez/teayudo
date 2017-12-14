@@ -23,9 +23,15 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style media="screen">
-        .my-navbar {
-            background-color: #fc6000;
+        .navbar-inverse{
+            background-color: #0c406f !important;
             color: white;
+        }
+
+        .active a{
+            background-color: inherit !important;
+            border-bottom: 1px solid white;
+            margin-bottom: 5px;
         }
         .navbar-text {
             background-color: blue; //lightgrey
@@ -56,6 +62,7 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Consultas', 'url' => ['/consultas/index']],
+            ['label' => 'Ranking', 'url' => ['/usuarios/ranking']],
             ['label' => 'Conócenos', 'url' => ['/site/about']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Mi perfil', 'url' => ['/site/login']]

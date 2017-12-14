@@ -21,7 +21,6 @@ $fechaComentario = $formatter ->asDate( $model->publicado , 'long' );
 </div>
 <div class="botonComentar">
         <p>
-            <!-- Html::a('Profile', ['user/view', 'id' => $id], ['class' => 'profile-link'])  -->
             <?= Html::a(
                 'Comentar',
                 ['../comentarios/create', 'id_consulta' => $model->id],
@@ -32,23 +31,26 @@ $fechaComentario = $formatter ->asDate( $model->publicado , 'long' );
 <hr />
 <!-- comentarios  -->
 <?php foreach ($comentarios as $comentario) {?>
-    <div class="col-md-offset-1 col-md-7  bg-info arrow_box">
-        <!-- <p>Autor del comentario:= $comentario->usuario->nombre ?></p> -->
-        <p><?= $comentario->comentario ?></p>
-        <!-- <p>Fecha comentario: $comentario->fecha ?></p> -->
-        <br/>
+    <div class="col-md-offset-1 col-md-7  bg-info arrow_box" style="padding-top:10px">
+        <p ><?= $comentario->comentario ?></p>
     </br/>
     </div>
     <div class="col-md-3" >
-    
         <p class="text-center">
             Publicado por <?= $comentario->usuario->nombre ?>
         </br/>
         <?= Html::img($comentario->usuario->rutaImagen, ['title' => 'Imagen de ' . $comentario->usuario->nombre  ,
-         'id' => 'fotoComentario', ]); ?>
+         'id' => 'fotoComentario','width'=>'125px','height'=>'80px' ]); ?>
+        </p>
+    </div>
+    <div class="col-md-1">
+        <p id=voto>
+            <br>
+            <?= Html::a(
+                'Me gusta',
+                ['../usuarios/votar', 'id' => $comentario->usuario->id, 'id_consulta' => $model->id],
+                ['class' => 'btn btn-success']
+            ); ?>
         </p>
     </div>
     <?php } ?>
-
-<!-- //$this->render('../comentarios/_form', ['model' => $comentarioNuevo]) -->
-<!-- // Yii::$app->controller->renderPartial('../comentarios/_form', ['model' => $comentarioNuevo]); -->

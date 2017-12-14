@@ -1,6 +1,8 @@
 <?php
 namespace app\models;
 use yii\base\Model;
+use yii\data\Sort;
+use yii\data\Pagination;
 use yii\data\ActiveDataProvider;
 use app\models\Consulta;
 /**
@@ -39,6 +41,9 @@ class ConsultaSearch extends Consulta
         // add conditions that should always apply here
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => new Pagination([
+                 'pageSize' => 4,
+             ]),
         ]);
         $this->load($params);
         if (!$this->validate()) {
