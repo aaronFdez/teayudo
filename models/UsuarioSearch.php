@@ -4,6 +4,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use app\models\Usuario;
+use yii\data\Pagination;
 /**
  * UsuarioSearch represents the model behind the search form about `app\models\Usuario`.
  */
@@ -40,6 +41,9 @@ class UsuarioSearch extends Usuario
         // add conditions that should always apply here
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => new Pagination([
+                'pageSize' => 3,
+            ]),
         ]);
         $this->load($params);
         if (!$this->validate()) {

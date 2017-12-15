@@ -2,6 +2,7 @@
 use app\components\UsuariosHelper;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UsuarioSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -11,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="usuario-index">
 
     <h1 class="text-center"><?= Html::encode($this->title) ?></h1>
-
+<?php Pjax::begin() ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
@@ -31,3 +32,4 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 </div>
+    <?php Pjax::end() ?>
