@@ -49,7 +49,7 @@ class UsuariosHelper extends \yii\base\Component
     public static function menu()
     {
         return static::isGuest() ? (
-            ['label' => 'Registrarse', 'url' => ['/site/login']]
+            ['label' => 'Loguearse', 'url' => ['/site/login']]
         ) : (
             '<li>'
             . Html::beginForm(['/site/logout'], 'post')

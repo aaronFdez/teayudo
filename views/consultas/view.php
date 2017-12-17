@@ -12,7 +12,9 @@ $fechaComentario = $formatter ->asDate( $model->publicado , 'long' );
 <div class="consulta-view panel panel-info" id="notVi" style="margin:60px 0px !important">
 
 
-    <div class="page-header" >
+    <div class="page-header" id ="headComentario" style="text-align:center;margin-top:15px">
+        <?= Html::img($model->usuario->rutaImagen, ['title' => 'Imagen de ' . $model->usuario->nombre  ,
+         'id' => 'fototitulo','width'=>'165px']); ?>
         <h2 class="text-center"><a href="<?=$model->enlace ?>"> <?= $model->titulo ?></a></h2>
       </div>
 

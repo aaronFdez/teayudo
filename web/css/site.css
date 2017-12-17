@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     font-family: caviar !important;
+    font-size:1.1vw;
 }
 
 @font-face {
@@ -219,8 +220,13 @@ body > div.wrap > div > div:nth-child(5) > div.body-content > div > div > a > im
 
 
 .pagination > .active > a {
-    background-color: #0c406f !important;
-    color: white !important;
+    background-color: #0c406f;
+    color:red ;
+}
+
+#w1 > li.active:hover  {
+    background-color: white;
+    color:#0c406f;
 }
 
 #w0 > tbody > tr:nth-child(4) > td > img {
@@ -241,4 +247,27 @@ body > div.wrap > div > div:nth-child(5) > div.body-content > div > div > a > im
     font-size: 1.3vw;
     text-align: center;
     text-transform: capitalize;
+}
+
+#w1 > li > a, #w0 > div > div.navbar-header > a {
+    color:white;
+}
+
+#w1 > li > a:hover, #w0 > div > div.navbar-header > a:hover {
+    background-color: white;
+    color:#0c406f;
+}
+
+#indexBotones > li:hover a{
+    background-color: #0c406f;
+    color:white;
+}
+
+#login-form > div:nth-child(4) > button {
+    margin-left: 120px;
+}
+
+#fototitulo {
+    display:inline;
+
 }

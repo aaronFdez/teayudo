@@ -79,19 +79,6 @@ $this->title = 'My Yii Application';
     transform: translateX(0);
     }
 }
-        .my-navbar {
-            background-color: #fc6000;
-            color: white;
-        }
-        p.navbar-text a {
-            color: #fc6000;
-            background-color: lightgrey;
-        }
-
-        #w0 {
-            background-color: #0c406f;
-            color:white;
-        }
         .swing:hover {
             -webkit-animation: swing 1s ease;
             animation: swing 1s ease;
@@ -106,13 +93,13 @@ $this->title = 'My Yii Application';
 <div class="site-index">
 
     <div class="container">
-        <ul class="nav nav-pills nav-justified">
+        <ul class="nav nav-pills nav-justified" id="indexBotones">
             <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=1"><span class="glyphicon glyphicon-home" aria-hidden="true">
             </span> Hogar</a></li>
             <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=2"><span class="glyphicon glyphicon-education" aria-hidden="true">
             </span> Abogados</a></li>
             <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=3"><span class="glyphicon glyphicon-phone" aria-hidden="true">
-            </span>Tecnología</a></li>
+            </span> Tecnología</a></li>
             <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=4"><span class="glyphicon glyphicon-knight" aria-hidden="true">
             </span> VideoJuegos</a></li>
             <li><a href="consultas/index?ConsultaSearch%5Btipo_consulta%5D=5"><span class="glyphicon glyphicon-bullhorn" aria-hidden="true">

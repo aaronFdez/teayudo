@@ -21,6 +21,7 @@ AppAsset::register($this);
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="description" content="Nueva web donde te ayudamos con tus consultas o puedes ayudar con tus conocimientos"  />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style media="screen">
         .navbar-inverse{

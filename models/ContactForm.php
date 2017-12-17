@@ -24,7 +24,7 @@ class ContactForm extends Model
     {
         return [
             [['name', 'email', 'subject', 'body'], 'required','message' =>'Campo requerido'],
-            ['name', 'match', 'pattern' => '/^[0-9a-z]+$/i ','message'=>'Sólo se aceptan letras y números'],
+            ['name', 'match', 'pattern' => '/^[a-zA-ZñÑáéíóúÁÉÍÓÚ0-9\s]+$/i ','message'=>'Sólo se aceptan letras y números'],
             ['email', 'email'],
             ['verifyCode', 'captcha'],
         ];
@@ -55,7 +55,7 @@ class ContactForm extends Model
                 ->setTo($email)
                 ->setFrom([$this->email => $this->name])
                 ->setSubject($this->subject)
-                ->setTextBody($this->body . ' escrito desde el correo ' . $this->email)
+                ->setTextBody('Motivo:' . $this->subject . ' y texto:' .  $this->body . ' escrito desde el correo ' . $this->email . ' por ' . $this->name)
                 ->send();
 
             return true;

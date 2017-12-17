@@ -55,9 +55,13 @@ $config = [
             'rules' => [
                 'usuarios/view/<id:\d+>' => 'usuarios/view',
                 'usuarios/<id:\d+>' => 'usuarios/view',
-                'usuarios/update/<id:\d+>' => 'usuarios/update',
-                'usuarios/delete/<id:\d+>' => 'usuarios/delete',
+                'usuarios/modificar/<id:\d+>' => 'usuarios/update',
+                'usuarios/borrar/<id:\d+>' => 'usuarios/delete',
                 'usuarios/activar/<token>' => 'usuarios/activar',
+                'contactar'=>'site/contact',
+                'conócenos' => 'site/about',
+                'consulta/<id:\d+>' =>'consultas/view',
+                'consulta/crear-nueva'=>'consultas/create'
             ],
         ],
     ],
