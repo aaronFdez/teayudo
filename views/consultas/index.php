@@ -9,6 +9,11 @@ use yii\widgets\Pjax;
 $this->title = 'Consultas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+    #w0-filters > td:nth-child(2) > select {
+        font-size:0.85vw;
+}
+</style>
 <div class="consulta-index">
 
     <h1 class="text-center"><?= Html::encode($this->title) ?></h1>

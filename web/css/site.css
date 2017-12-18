@@ -237,8 +237,7 @@ body > div.wrap > div > div:nth-child(5) > div.body-content > div > div > a > im
 }
 
 #foto > img {
-    max-width: 100px;
-    max-height: 100px;
+    max-height: 90px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -264,10 +263,20 @@ body > div.wrap > div > div:nth-child(5) > div.body-content > div > div > a > im
 }
 
 #login-form > div:nth-child(4) > button {
-    margin-left: 120px;
+    margin-left: 100px;
 }
 
 #fototitulo {
     display:inline;
 
+}
+
+.form-control, .navbar-brand, body > div.wrap > div > div > div.row > div:nth-child(1) > p > a,
+body > div.wrap > div > div > p > a.btn, #login-form > div:nth-child(4) > button,#login-form > div:nth-child(4) > a,
+#w0 > div:nth-child(6) > button{
+    font-size: inherit;
+}
+
+#w2 > li:nth-child(6) > form > button {
+    font-size:0.9vw;
 }

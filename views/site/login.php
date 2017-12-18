@@ -7,9 +7,18 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 
-$this->title = 'Registro';
+$this->title = 'Logueo';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style media="screen">
+        #w1 > li:nth-child(4) a{
+            border:none !important;
+        }
+    </style>
+    </head>
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 

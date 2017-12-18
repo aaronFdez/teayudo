@@ -214,7 +214,7 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         if (file_exists($ruta)) {
             return Url::to("/$ruta");
         } else {
-            return Url::to('/fotos/2.jpg');
+            return Url::to('/fotos/default.jpg');
         }
     }
 }
