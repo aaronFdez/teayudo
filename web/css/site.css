@@ -285,3 +285,13 @@ body > div.wrap > div > div > p > a.btn, #login-form > div:nth-child(4) > button
 #w0 > ul > li.active > a:hover {
     color:#0c406f;
 }
+
+@media screen and (max-width: 360px) {
+    body {
+        font-size: 15px;
+    }
+
+    body > div.wrap > div > div > div.row > div:nth-child(n+2) {
+        display:none;
+    }
+}

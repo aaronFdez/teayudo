@@ -17,13 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Modificar', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <!-- < Html::a('Borrar', ['borrar', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => $model->nombre . ' , ¿está seguro que quiere borrar esta cuenta?',
-                'method' => 'post',
-            ],
-        ]) ?> -->
+        <?= Html::a('Crear Consulta', ['consultas/create'], ['class' => 'btn btn-success']) ?>
     </p>
     <div class="media">
         <div class="media-left">
