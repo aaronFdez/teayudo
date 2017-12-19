@@ -199,6 +199,11 @@ class Usuario extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
         return true;
     }
 
+    public function borrar()
+    {
+        $this->password = 'borrado';
+    }
+
     public function uploadFile()
     {
         $this->foto = UploadedFile::getInstance($this, 'foto');

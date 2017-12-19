@@ -41,6 +41,10 @@ AppAsset::register($this);
             color: #fc6000;
             background-color: lightgrey;
         }
+
+        #w3 > li:nth-child(6) > form > button {
+            font-size:0.9vw;
+        }
     </style>
     <?= Html::csrfMetaTags() ?>
     <?= Html::img('images/logo.png');?>
@@ -93,7 +97,6 @@ AppAsset::register($this);
     <div class="container">
         <p class="pull-left">Te Ayudo &copy;  ( <?= date('d M Y') ?> ) </p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
 

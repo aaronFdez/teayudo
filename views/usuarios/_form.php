@@ -20,7 +20,7 @@ use yii\widgets\ActiveForm;
         <?= $form->field($model, 'tipo')->dropDownList(UsuariosHelper::listaTipos()) ?>
     <?php endif; ?>
 
-    <!-- <  $form->field($model, 'foto')->fileInput() ?> -->
+    <?=  $form->field($model, 'foto')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Crear' : 'Modificar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

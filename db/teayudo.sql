@@ -10,9 +10,6 @@ create table usuarios (
    zona_horaria   varchar(255)  default 'Europe/Madrid',
    votos                 numeric(6)     default 0,
    token_val        varchar(32)    constraint uq_usuarios_token_val unique
-   -- consulta_id     bigint              not null constraint fk_usuario_consultas
-   --                                                references consultas (id)
-   --                                                on delete no action on update cascade
 );
 
 drop table if exists tipo_consulta cascade;

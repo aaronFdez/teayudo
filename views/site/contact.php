@@ -35,7 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <p>
             Ayúdanos a mejorar. Escribe tu sugerencia, duda o queja y te responderemos lo antes posible.
-            Si algún comentario o consulta es inapropiado indica el título o el nombre del usuario.
+            Si algún comentario o consulta es inapropiado indica el título o el nombre del usuario. Si quieres cancelar tu cuenta
+            mándanos un mensaje que os ayude a mejorar, gracias.
         </p>
 
         <div class="row">

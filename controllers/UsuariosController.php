@@ -44,7 +44,7 @@ class UsuariosController extends Controller
                     ],
                     [
                         'allow' => true,
-                        'actions' => ['update', 'view','delete'],
+                        'actions' => ['update', 'view','borrar'],
                         'roles' => ['@'],
                         'matchCallback' => function ($rule, $action) {
                             $id = Yii::$app->request->get('id');
@@ -151,9 +151,9 @@ class UsuariosController extends Controller
      * @param integer $id
      * @return mixed
      */
-    public function actionDelete($id)
+    public function actionBorrar($id)
     {
-        $this->findModel($id)->delete();
+        $this->findModel($id)->borrar();
         return $this->redirect(['index']);
     }
 

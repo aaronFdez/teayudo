@@ -17,13 +17,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Modificar', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Borrar', ['delete', 'id' => $model->id], [
+        <!-- < Html::a('Borrar', ['borrar', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => $model->nombre . ' , ¿está seguro que quiere borrar esta cuenta?',
                 'method' => 'post',
             ],
-        ]) ?>
+        ]) ?> -->
     </p>
     <div class="media">
         <div class="media-left">
