@@ -276,8 +276,12 @@ body > div.wrap > div > div > p > a.btn, #login-form > div:nth-child(4) > button
 #w0 > div:nth-child(6) > button, #w0 > div:nth-child(3) > button, #w0 > div:nth-child(7) > button{
     font-size: inherit;
 }
-
-
+#consulta-tipo_consulta {
+    font-size:0.85vw;
+}
+#contact-form > div:nth-child(7) > button{
+    font-size:1.1vw;
+}
 #w0 > ul > li.active > a:hover {
     color:#0c406f;
 }

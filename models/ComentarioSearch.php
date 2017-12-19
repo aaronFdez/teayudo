@@ -53,7 +53,7 @@ class ComentarioSearch extends Comentario
             'id_usuario' => $this->id_usuario,
             'id_consulta' => $this->id_consulta,
         ]);
-        $query->andFilterWhere(['like', 'comentario', $this->comentario]);
+        $query->andFilterWhere(['ilike', 'comentario', $this->comentario]);
         return $dataProvider;
     }
 }

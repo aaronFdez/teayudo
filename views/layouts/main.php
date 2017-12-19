@@ -42,7 +42,7 @@ AppAsset::register($this);
             background-color: lightgrey;
         }
 
-        #w3 > li:nth-child(6) > form > button {
+        #w3 > li:nth-child(6) > form > button, #w1 > li:nth-child(6) > form > button {
             font-size:0.9vw;
         }
     </style>

@@ -37,9 +37,6 @@ class ConsultasController extends Controller
                         'allow' => true,
                         'actions' => ['create','update', 'view', 'delete', 'index'],
                         'roles' => ['@'],
-                        // 'matchCallback' => function ($rule, $action) {
-                        //     return UsuariosHelper::isAdmin();
-                        // }
                     ],
                     [
                         'allow' => true,
@@ -154,7 +151,7 @@ class ConsultasController extends Controller
         if (($model = Consulta::findOne($id)) !== null) {
             return $model;
         } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
+            throw new NotFoundHttpException('No se encuentra la consulta');
         }
     }
 }
